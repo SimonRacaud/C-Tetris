@@ -7,9 +7,16 @@
 
 DSRC	=	./src/
 
-SRC	=	$(DSRC)main.c			\
-		$(DSRC)usage.c			\
-		$(DSRC)tools.c			\
+SRC	=	$(DSRC)main.c						\
+		$(DSRC)constant.c					\
+		$(DSRC)usage.c						\
+		$(DSRC)tools.c						\
+		$(DSRC)game/tetris.c				\
+		$(DSRC)prepare/game_init.c			\
+		$(DSRC)prepare/get_config.c			\
+		$(DSRC)prepare/config/config_apply_options.c	\
+		$(DSRC)prepare/load_tetriminos.c	\
+		$(DSRC)prepare/debug_display_config.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

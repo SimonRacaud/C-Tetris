@@ -12,10 +12,10 @@ int main(int argc, char **argv)
     bool show_help = have_str_in_array(argv, argc, "-h");
 
     show_help = show_help || have_str_in_array(argv, argc, "--help");
-    if (argc <= 1 || show_help) {
+    if (show_help) {
         return usage(EXIT_SUCCESS);
     } else {
-
+        return tetris(argc, argv);
     }
     return EXIT_SUCCESS;
 }

@@ -13,8 +13,8 @@
 
 typedef struct game {
     config_t conf;
-    pieces_t terminimos;
-    tetrminimo_t piece;
+    pieces_t pieces;
+    tetrminimo_t curr_piece;
     coord_t piece_coord;
     char **map;
     int score;

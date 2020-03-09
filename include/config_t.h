@@ -12,13 +12,13 @@ typedef struct config {
     int start_level;
     int key_left;
     int key_right;
-    int key_trun;
+    int key_turn;
     int key_drop;
     int key_quit;
     int key_pause;
     int map_height;
     int map_width;
-    bool hide_next_terminimo;
+    bool hide_next_tetrimino;
     bool debug_mode;
 } config_t;
 
