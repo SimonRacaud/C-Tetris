@@ -22,6 +22,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/debug_display_config.c			\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)misc/linked_file_list.c					\
+		$(DSRC)display_debug.c					\
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -57,4 +57,7 @@ int apply_option_map_size(config_t *conf, char index);
 void file_list_destroy(file_list_t *list);
 int file_list_add(file_list_t **list, const char *filename);
 
+//debug function
+int show_debug_screen(game_t tetris);
+
 #endif
