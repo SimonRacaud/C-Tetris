@@ -13,6 +13,11 @@ typedef struct coord {
     int y;
 } coord_t;
 
+typedef struct file_list {
+    struct file_list *next;
+    char *filename;
+} file_list_t;
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -31,11 +36,14 @@ int tetris(int argc, char **argv);
 // Tools Functions
 bool have_str_in_array(char **array, int size, const char *str);
 int my_get_check_nbr(char *str, int *nbr, const char *ignore);
+char *merge_path_filename(const char *path, const char *filename);
 
 // Prepare and Init
 int game_init(game_t *tetris, char **argv, int argc);
 int get_config(config_t *conf, char **argv, int argc);
 int load_tetriminos(pieces_t *pieces);
+int load_piece(tetrimino_t *tetrminimo, char *filename);
+char *get_filename_without_ext(const char *filename);
 
 int apply_option_key_piece(config_t *conf, char index);
 int apply_option_key_other(config_t *conf, char index);
@@ -43,5 +51,9 @@ int apply_option_misc(config_t *conf, char index);
 int apply_option_map_size(config_t *conf, char index);
 
  void debug_display_config(config_t *config); // DEBUG
+
+// Lisked file list
+void file_list_destroy(file_list_t *list);
+int file_list_add(file_list_t **list, const char *filename);
 
 #endif

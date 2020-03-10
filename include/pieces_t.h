@@ -8,16 +8,16 @@
 #ifndef PIECES_H
 #define PIECES_H
 
-typedef struct tetrminimo {
+typedef struct tetrmimino {
     char *name;
-    char **piece;
+    char **mtx;
     int height;
     int width;
     int color;
-} tetrminimo_t;
+} tetrimino_t;
 
 typedef struct pieces {
-    tetrminimo_t *pieces;
+    tetrimino_t *pieces;
     int size;
 } pieces_t;
 
