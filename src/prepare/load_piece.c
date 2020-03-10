@@ -23,6 +23,7 @@ static int load_piece_header(tetrimino_t *tetri, char *first_line)
         return EXIT_FAILURE;
     if (my_get_check_nbr(header[2], &(tetri->color), NULL) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    word_array_destroy(header);
     return EXIT_SUCCESS;
 }
 
@@ -42,6 +43,7 @@ static char **load_piece_content(tetrimino_t *tetri, char *filename)
     }
     if (!file || word_array_len(file) < 2) {
         tetri->mtx = NULL;
+        word_array_destroy(file);
         free(filepath);
         return NULL;
     }

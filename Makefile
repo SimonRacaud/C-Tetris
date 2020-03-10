@@ -18,6 +18,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/config/config_apply_options.c	\
 		$(DSRC)prepare/load_tetriminos.c				\
 		$(DSRC)prepare/load_piece.c						\
+		$(DSRC)prepare/tetriminos_destroy.c				\
 		$(DSRC)prepare/debug_display_config.c			\
 		$(DSRC)misc/linked_file_list.c					\
 

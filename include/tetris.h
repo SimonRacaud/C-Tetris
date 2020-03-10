@@ -45,6 +45,7 @@ bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
 int game_init(game_t *tetris, char **argv, int argc);
 int get_config(config_t *conf, char **argv, int argc);
 int load_tetriminos(pieces_t *pieces);
+void pieces_destroy(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
 
 int apply_option_key_piece(config_t *conf, char index);
