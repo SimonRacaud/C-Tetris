@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+const char *PATH_TETRIMINOS = "./tetriminos/";
+
 // PROGRAM options
 
 const char *OPTIONS = "L:l:r:t:d:p:q:wD";
