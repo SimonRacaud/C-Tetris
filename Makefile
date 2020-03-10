@@ -15,14 +15,16 @@ SRC	=	$(DSRC)main.c						\
 		$(DSRC)prepare/game_init.c			\
 		$(DSRC)prepare/get_config.c			\
 		$(DSRC)prepare/config/config_apply_options.c	\
-		$(DSRC)prepare/load_tetriminos.c	\
-		$(DSRC)prepare/debug_display_config.c	\
+		$(DSRC)prepare/load_tetriminos.c				\
+		$(DSRC)prepare/load_piece.c						\
+		$(DSRC)prepare/debug_display_config.c			\
+		$(DSRC)misc/linked_file_list.c					\
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	tetris
 
-CFLAGS	+= -Wall -Wextra -I./include
+CFLAGS	+= -Wall -Wextra -I./include -g
 
 all:	$(NAME)
 

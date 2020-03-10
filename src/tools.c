@@ -61,3 +61,20 @@ char *merge_path_filename(const char *path, const char *filename)
     merge[sizea + sizeb] = '\0';
     return merge;
 }
+
+char *get_filename_without_ext(const char *filename)
+{
+    char *ret = NULL;
+    int dot_pos = 0;
+
+    for (int i = 0; filename[i] != '\0'; i++) {
+        if (filename[i] == '.')
+            dot_pos = i;
+    }
+    ret = malloc(sizeof(char) * (dot_pos + 1));
+    if (!ret)
+        return NULL;
+    my_strncpy(ret, filename, dot_pos + 1);
+    ret[dot_pos] = '\0';
+    return ret;
+}

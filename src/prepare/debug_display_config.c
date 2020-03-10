@@ -20,4 +20,5 @@
      my_printf("Map width: %d \n", config->map_width);
      my_printf("Hide next tetrimino: %d \n", config->hide_next_tetrimino);
      my_printf("Debug mode: %d \n", config->debug_mode);
+     my_putstr("------------------------------------\n");
  }
