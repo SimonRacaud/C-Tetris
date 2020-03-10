@@ -8,6 +8,11 @@
 #ifndef PIECES_H
 #define PIECES_H
 
+typedef struct coord {
+    int x;
+    int y;
+} coord_t;
+
 typedef struct tetrmimino {
     char *name;
     char **mtx;

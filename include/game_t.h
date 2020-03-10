@@ -8,6 +8,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <time.h>
 #include "config_t.h"
 #include "pieces_t.h"
 

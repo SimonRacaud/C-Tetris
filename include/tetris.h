@@ -8,11 +8,6 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-typedef struct coord {
-    int x;
-    int y;
-} coord_t;
-
 typedef struct file_list {
     struct file_list *next;
     char *filename;

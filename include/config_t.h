@@ -8,6 +8,8 @@
 #ifndef CONF_H
 #define CONF_H
 
+#include <stdbool.h>
+
 typedef struct config {
     int start_level;
     int key_left;
