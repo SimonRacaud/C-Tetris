@@ -35,12 +35,12 @@ static int pieces_create(pieces_t *pieces, file_list_t *files, int size)
     file_list_t *ptr = files;
 
     pieces->size = size;
-    pieces->pieces = malloc(sizeof(tetrimino_t) * size);
-    if (!pieces->pieces) {
+    pieces->pc = malloc(sizeof(tetrimino_t) * size);
+    if (!pieces->pc) {
         return EXIT_FAILURE;
     }
     for (int i = 0; i < size; i++) {
-        if (load_piece(&(pieces->pieces[i]), ptr->filename) == EXIT_FAILURE)
+        if (load_piece(&(pieces->pc[i]), ptr->filename) == EXIT_FAILURE)
             return EXIT_FAILURE;
         ptr = ptr->next;
     }

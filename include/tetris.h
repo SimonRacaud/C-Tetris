@@ -36,14 +36,16 @@ int tetris(int argc, char **argv);
 // Tools Functions
 bool have_str_in_array(char **array, int size, const char *str);
 int my_get_check_nbr(char *str, int *nbr, const char *ignore);
+bool have_char_in_string(char c, const char *str);
 char *merge_path_filename(const char *path, const char *filename);
+char *get_filename_without_ext(const char *filename);
+bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
 
 // Prepare and Init
 int game_init(game_t *tetris, char **argv, int argc);
 int get_config(config_t *conf, char **argv, int argc);
 int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
-char *get_filename_without_ext(const char *filename);
 
 int apply_option_key_piece(config_t *conf, char index);
 int apply_option_key_other(config_t *conf, char index);

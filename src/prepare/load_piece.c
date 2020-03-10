@@ -8,6 +8,7 @@
 #include "tetris.h"
 
 extern const char *PATH_TETRIMINOS;
+extern const char *TETRIMINO_CHAR;
 
 static int load_piece_header(tetrimino_t *tetri, char *first_line)
 {
@@ -25,27 +26,68 @@ static int load_piece_header(tetrimino_t *tetri, char *first_line)
     return EXIT_SUCCESS;
 }
 
-int load_piece(tetrimino_t *tetrimino, char *filename)
+static char **load_piece_content(tetrimino_t *tetri, char *filename)
 {
     char *filepath = merge_path_filename(PATH_TETRIMINOS, filename);
     char **file = read_file(filepath);
 
     if (!filepath) {
-        my_putstr_error("load_piece : filepath error\n");
-        return EXIT_FAILURE;
+        tetri->mtx = NULL;
+        return NULL;
     }
-    tetrimino->name = get_filename_without_ext(filename);
-    if (!tetrimino->name)
-        return EXIT_FAILURE;
+    tetri->name = get_filename_without_ext(filename);
+    if (!tetri->name) {
+        tetri->mtx = NULL;
+        return NULL;
+    }
     if (!file || word_array_len(file) < 2) {
-        tetrimino->mtx = NULL;
-        return EXIT_SUCCESS;
+        tetri->mtx = NULL;
+        free(filepath);
+        return NULL;
     }
+    free(filepath);
+    return file;
+}
+
+static int matrix_create(tetrimino_t *tetri, char **file)
+{
+    int len = 0;
+
+    for (int i = 1; file[i]; i++) {
+        if (!have_only_correct_char_in_str(file[i], TETRIMINO_CHAR))
+            return EXIT_ERROR;
+        len++;
+    }
+    if (len != tetri->height)
+        return EXIT_ERROR;
+    tetri->mtx = malloc(sizeof(char *) * len);
+    if (!tetri->mtx)
+        return EXIT_FAILURE;
+    free(file[0]);
+    for (int i = 0; i < len; i++)
+        tetri->mtx[i] = file[i + 1];
+    free(file);
+    return EXIT_SUCCESS;
+}
+
+int load_piece(tetrimino_t *tetrimino, char *filename)
+{
+    int ret;
+    char **file = NULL;
+
+    file = load_piece_content(tetrimino, filename);
+    if (!file)
+        return EXIT_SUCCESS;
     if (load_piece_header(tetrimino, file[0]) == EXIT_FAILURE) {
         tetrimino->mtx = NULL;
         return EXIT_SUCCESS;
     }
-    free(filepath);
-    word_array_destroy(file);
+    ret = matrix_create(tetrimino, file);
+    if (ret == EXIT_ERROR) {
+        tetrimino->mtx = NULL;
+        word_array_destroy(file);
+        return EXIT_SUCCESS;
+    } else if (ret == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

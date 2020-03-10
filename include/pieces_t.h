@@ -17,7 +17,7 @@ typedef struct tetrmimino {
 } tetrimino_t;
 
 typedef struct pieces {
-    tetrimino_t *pieces;
+    tetrimino_t *pc;
     int size;
 } pieces_t;
 
