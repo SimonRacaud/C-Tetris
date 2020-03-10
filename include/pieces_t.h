@@ -9,6 +9,7 @@
 #define PIECES_H
 
 typedef struct tetrminimo {
+    char *name;
     char **piece;
     int height;
     int width;
