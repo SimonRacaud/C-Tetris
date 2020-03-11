@@ -7,7 +7,7 @@
 
 #include "pieces_t.h"
 
-static int swap_if_greater(tetrimino_t *pc, int i, char *sorted, int size)
+static int swap_if_greater(tetrimino_t *pc, int i, char *sorted)
 {
     tetrimino_t temp;
     int posX = 0;
@@ -33,7 +33,7 @@ int sort_tetriminos(tetrimino_t *pc, int size)
     do {
         is_sorted = 'T';
         for (int i = 0; i < (size - 1); i++) {
-            if (swap_if_greater(pc, i, &is_sorted, size))
+            if (swap_if_greater(pc, i, &is_sorted))
                 break;
         }
     } while (is_sorted == 'F');

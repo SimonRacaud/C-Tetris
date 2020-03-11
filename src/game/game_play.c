@@ -7,17 +7,10 @@
 
 #include "tetris.h"
 
-extern const char *TITLE2;
-
 int game_play(game_t *tetris)
 {
-    // TEMP
-    printw("%s", TITLE2);
-    mvwprintw(tetris->board.w, 1, 1, "GAME BOARD");
-    mvwprintw(tetris->menu.w, 1, 1, "Ceci est la fenetre du MENU");
-    refresh();
-    wrefresh(tetris->menu.w);
-    wrefresh(tetris->board.w);
-    getch();
+    while (1) {
+        display(tetris);
+    }
     return tetris->exit_status;
 }

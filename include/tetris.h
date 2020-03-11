@@ -70,4 +70,9 @@ int show_debug_screen(game_t *tetris);
 
 int rotate(tetrimino_t *piece);
 
+// Display
+int display(game_t *tetris);
+int display_menu(game_t *tetris);
+int display_board(game_t *tetris);
+
 #endif
