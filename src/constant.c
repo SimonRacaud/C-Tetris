@@ -10,6 +10,15 @@
 const char *PATH_TETRIMINOS = "./tetriminos/";
 const char *TETRIMINO_CHAR = "* ";
 
+// WINDOW
+
+const int TITLE_HEIGHT = 5;
+const int TITLE_WIDTH = 56;
+
+const int PANEL_HEIGHT = 20;
+const int PANEL_WIDTH = 20;
+
+
 // PROGRAM options
 
 const char *OPTIONS = "L:l:r:t:d:p:q:wD";
@@ -40,8 +49,8 @@ const char BACKG_CHAR = ' ';
 
 const char MAP_EDGE[3] =
 {
-    '-',
     '|',
+    '-',
     '+'
 };
 const char PANEL_EDGE[3] =
@@ -84,3 +93,17 @@ const key_s KEY_SPEC[] = {
     { KEY_PPAGE,     "Page up"         },
     { ' ',           "(space)"         },
 };
+
+//
+
+const char *TITLE1 =
+    "_______  ______  _    __ _______  ______  _____  ______ \n"
+    "  | |   | |     | |  / /   | |   | |  | \\  | |  / |     \n"
+    "  | |   | |---- | |-< <    | |   | |__| |  | |  '------.\n"
+    "  |_|   |_|____ |_|  \\_\\   |_|   |_|  \\_\\ _|_|_  ____|_/\n";
+
+const char *TITLE2 =
+    " _____ ___ _  _______ ___ _   __\n"
+    "|_   _| __| |/ /_   _| _ \\ |/' _/\n"
+    "  | | | _||   <  | | | v / |`._`.\n"
+    "  |_| |___|_|\\_\\ |_| |_|_\\_||___/\n";

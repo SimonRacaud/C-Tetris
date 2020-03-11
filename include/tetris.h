@@ -17,18 +17,22 @@ typedef struct file_list {
 #include <stdbool.h>
 #include <unistd.h>
 #include <getopt.h>
-#include <curses.h>
+#include <ncurses.h>
 #include <time.h>
 #include "my.h"
 #include "game_t.h"
 #include "debug.h"
+#include "window.h"
 
 #define EXIT_ERROR 84
 
 // Base Functions
 
 int usage(int status);
-int tetris(int argc, char **argv);
+int tetris(int argc, char **argv, char **env);
+
+// GAME
+int game_play(game_t *tetris);
 
 // Tools Functions
 bool have_str_in_array(char **array, int size, const char *str);

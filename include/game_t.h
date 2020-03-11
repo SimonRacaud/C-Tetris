@@ -11,8 +11,12 @@
 #include <time.h>
 #include "config_t.h"
 #include "pieces_t.h"
+#include "window_t.h"
 
 typedef struct game {
+    int exit_status;
+    window_t menu;
+    window_t board;
     config_t conf;
     pieces_t pieces;
     player_piece_t ppiece;

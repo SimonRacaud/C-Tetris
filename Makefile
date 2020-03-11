@@ -12,7 +12,9 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)usage.c									\
 		$(DSRC)tools.c									\
 		$(DSRC)tools_file.c								\
-		$(DSRC)game/tetris.c							\
+		$(DSRC)tetris.c									\
+		$(DSRC)window/window_create_destroy.c			\
+		$(DSRC)game/game_play.c							\
 		$(DSRC)prepare/game_init.c						\
 		$(DSRC)prepare/get_config.c						\
 		$(DSRC)prepare/config/config_apply_options.c	\
@@ -23,7 +25,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)misc/linked_file_list.c					\
-		$(DSRC)rotate/rotate.c					\
+		$(DSRC)rotate/rotate.c							\
 		$(DSRC)display_debug.c							\
 
 OBJ	=	$(SRC:.c=.o)

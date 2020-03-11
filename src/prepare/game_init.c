@@ -15,6 +15,7 @@ static void game_init_struct(game_t *tetris)
     tetris->lines = 0;
     tetris->level = 0;
     tetris->time = 0;
+    tetris->exit_status = EXIT_SUCCESS;
 }
 
 static int game_map_create(game_t *tetris)
