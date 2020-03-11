@@ -37,12 +37,11 @@ static char **load_piece_content(tetrimino_t *tetri, char *filename)
         return NULL;
     }
     tetri->name = get_filename_without_ext(filename);
+    tetri->mtx = NULL;
     if (!tetri->name) {
-        tetri->mtx = NULL;
         return NULL;
     }
     if (!file || word_array_len(file) < 2) {
-        tetri->mtx = NULL;
         word_array_destroy(file);
         free(filepath);
         return NULL;
