@@ -29,7 +29,6 @@ typedef struct pieces {
 typedef struct player_piece {
     pieces_t *piece;
     coord_t coord;
-    int rotate;
 } player_piece_t;
 
 #endif
