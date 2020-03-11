@@ -48,6 +48,7 @@ int game_init(game_t *tetris, char **argv, int argc);
 int get_config(config_t *conf, char **argv, int argc);
 int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
+int sort_tetriminos(tetrimino_t *pc, int size);
 
 int apply_option_key_piece(config_t *conf, char index);
 int apply_option_key_menu(config_t *conf, char index);
