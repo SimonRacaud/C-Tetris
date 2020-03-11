@@ -64,4 +64,6 @@ int file_list_add(file_list_t **list, const char *filename);
 //debug function
 int show_debug_screen(game_t *tetris);
 
+int rotate(tetrimino_t *piece);
+
 #endif
