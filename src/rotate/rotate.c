@@ -25,9 +25,13 @@ static char **get_new_matrix(int x, int y)
 
 static void matrix_rotate(char **new, tetrimino_t *piece)
 {
-    for (int x = 0; x < piece->width; x++)
-        for (int i = piece->height - 1; i >= 0; i--)
-            new[x][piece->height - i - 1] = piece->mtx[i][x];
+    for (int y = 0; y < piece->width; y++)
+        for (int x = piece->height - 1; x >= 0; x--) {
+            if (piece->mtx[x][y] != 0)
+                new[y][piece->height - x - 1] = piece->mtx[x][y];
+            else
+                new[y][piece->height - x - 1] = ' ';
+        }
 }
 
 int rotate(tetrimino_t *piece)
