@@ -57,5 +57,6 @@ int load_tetriminos(pieces_t *pieces)
     if (pieces_create(pieces, files, count_file) == EXIT_FAILURE)
         return EXIT_FAILURE;
     file_list_destroy(files);
+    sort_tetriminos(pieces->pc, pieces->size);
     return EXIT_SUCCESS;
 }

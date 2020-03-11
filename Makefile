@@ -21,6 +21,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/tetriminos_destroy.c				\
 		$(DSRC)prepare/debug_display_config.c			\
 		$(DSRC)prepare/game_destroy.c					\
+		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)misc/linked_file_list.c					\
 		$(DSRC)rotate/rotate.c					\
 		$(DSRC)display_debug.c							\
