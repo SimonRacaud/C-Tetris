@@ -13,6 +13,8 @@ int tetris(int argc, char **argv)
 
     if (game_init(&tetris, argv, argc) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    if (tetris.conf.debug_mode)
+        show_debug_screen(&tetris);
     game_destroy(&tetris);
     return EXIT_SUCCESS;
 }

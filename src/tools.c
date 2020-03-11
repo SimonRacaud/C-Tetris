@@ -39,3 +39,13 @@ int my_get_check_nbr(char *str, int *nbr, const char *ignore)
     (*nbr) = my_getnbr(str);
     return EXIT_SUCCESS;
 }
+
+int get_key_code(char *str, int *nbr)
+{
+    int len = my_strlen(str);
+
+    if (len != 1)
+        return EXIT_FAILURE;
+    (*nbr) = (int)str[0];
+    return EXIT_SUCCESS;
+}

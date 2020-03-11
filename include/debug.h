@@ -14,6 +14,6 @@ typedef struct key_t
     char *cqfd;
 } key_s;
 
-#define PIECE(x) tetris.pieces.pc[x]
+#define PIECE(x) tetris->pieces.pc[x]
 
 #endif

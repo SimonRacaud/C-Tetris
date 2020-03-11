@@ -17,9 +17,11 @@ typedef struct file_list {
 #include <stdbool.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <curses.h>
 #include <time.h>
 #include "my.h"
 #include "game_t.h"
+#include "debug.h"
 
 #define EXIT_ERROR 84
 
@@ -35,6 +37,7 @@ bool have_char_in_string(char c, const char *str);
 char *merge_path_filename(const char *path, const char *filename);
 char *get_filename_without_ext(const char *filename);
 bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
+int get_key_code(char *str, int *nbr);
 
 // Destroy
 void pieces_destroy(pieces_t *pieces);
@@ -47,7 +50,7 @@ int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
 
 int apply_option_key_piece(config_t *conf, char index);
-int apply_option_key_other(config_t *conf, char index);
+int apply_option_key_menu(config_t *conf, char index);
 int apply_option_misc(config_t *conf, char index);
 int apply_option_map_size(config_t *conf, char index);
 
@@ -58,6 +61,6 @@ void file_list_destroy(file_list_t *list);
 int file_list_add(file_list_t **list, const char *filename);
 
 //debug function
-int show_debug_screen(game_t tetris);
+int show_debug_screen(game_t *tetris);
 
 #endif

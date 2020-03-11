@@ -5,9 +5,7 @@
 ** Created: 2020-03-09T10:33:20+01:00 | Author: simon
 */
 
-#include <getopt.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include "tetris.h"
 
 const char *PATH_TETRIMINOS = "./tetriminos/";
 const char *TETRIMINO_CHAR = "* ";
@@ -72,7 +70,7 @@ const bool INIT_HIDE_NEXT_TERMI = false;
 
 // Keyboard
 
-static const key_s KEY_SPEC[] = {
+const key_s KEY_SPEC[] = {
     { KEY_UP,        "Up arrow"        },
     { KEY_DOWN,      "Down arrow"      },
     { KEY_LEFT,      "Left arrow"      },
@@ -83,17 +81,5 @@ static const key_s KEY_SPEC[] = {
     { KEY_IC,        "Insert"          },
     { KEY_DC,        "Delete"          },
     { KEY_NPAGE,     "Page down"       },
-    { KEY_PPAGE,     "Page up"         },
-    { KEY_F(1),      "Function key 1"  },
-    { KEY_F(2),      "Function key 2"  },
-    { KEY_F(3),      "Function key 3"  },
-    { KEY_F(4),      "Function key 4"  },
-    { KEY_F(5),      "Function key 5"  },
-    { KEY_F(6),      "Function key 6"  },
-    { KEY_F(7),      "Function key 7"  },
-    { KEY_F(8),      "Function key 8"  },
-    { KEY_F(9),      "Function key 9"  },
-    { KEY_F(10),     "Function key 10" },
-    { KEY_F(11),     "Function key 11" },
-    { KEY_F(12),     "Function key 12" }
+    { KEY_PPAGE,     "Page up"         }
 };

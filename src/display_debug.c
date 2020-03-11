@@ -10,6 +10,8 @@
 #include "debug.h"
 #include "my.h"
 
+extern const key_s KEY_SPEC[];
+
 static char *get_key(int val)
 {
     char *key;
@@ -35,57 +37,64 @@ static int key_manage(char *str, char *key)
 {
     if (!key)
         return EXIT_ERROR;
-    my_printf("%s : %s\n", str, key);
+    printw("%s : %s\n", str, key);
     free(key);
     return EXIT_SUCCESS;
 }
 
-static int key_display(config_t config)
+static int key_display(config_t *config)
 {
     char *name[] = {"Key Left", "Key Right", "Key Turn", "Key Drop",
     "Key Quit", "Key Pause"};
 
-    if (key_manage(name[0], get_key(config.key_left)) == EXIT_ERROR)
+    if (key_manage(name[0], get_key(config->key_left)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[1], get_key(config.key_right)) == EXIT_ERROR)
+    if (key_manage(name[1], get_key(config->key_right)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[2], get_key(config.key_turn)) == EXIT_ERROR)
+    if (key_manage(name[2], get_key(config->key_turn)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[3], get_key(config.key_drop)) == EXIT_ERROR)
+    if (key_manage(name[3], get_key(config->key_drop)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[4], get_key(config.key_quit)) == EXIT_ERROR)
+    if (key_manage(name[4], get_key(config->key_quit)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[5], get_key(config.key_pause)) == EXIT_ERROR)
+    if (key_manage(name[5], get_key(config->key_pause)) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
 
-static void display_tetriminos(game_t tetris)
+static void display_tetriminos(game_t *tetris)
 {
-    my_printf("Tetriminos : %i\n", tetris.pieces.size);
-    for (int i = 0; i < tetris.pieces.size; i++) {
-        if (!tetris.pieces.pc[i].mtx)
-            my_printf("Tetriminos : Name %s : Error", PIECE(i).name);
+    printw("Tetriminos : %i\n", tetris->pieces.size);
+    for (int i = 0; i < tetris->pieces.size; i++) {
+        if (!tetris->pieces.pc[i].mtx)
+            printw("Tetriminos : Name %s : Error\n", PIECE(i).name);
         else {
-            my_printf("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
+            printw("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
             PIECE(i).name, PIECE(i).width, PIECE(i).height, PIECE(i).color);
             for (int u = 0; u < PIECE(i).height; u++)
-                my_printf("%s\n", PIECE(i).mtx[u]);
+                printw("%s\n", PIECE(i).mtx[u]);
         }
     }
 }
 
-int show_debug_screen(game_t tetris)
+int show_debug_screen(game_t *tetris)
 {
-    if (key_display(tetris.conf) == EXIT_ERROR)
+    config_t *config = &tetris->conf;
+
+    initscr();
+    printw("*** DEBUG MODE ***\n");
+    if (key_display(config) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (tetris.conf.hide_next_tetrimino)
-        my_printf("Next : yes\n");
+    if (config->hide_next_tetrimino)
+        printw("Next : Yes\n");
     else
-        my_printf("Next : no\n");
-    my_printf("Level : %i\n", tetris.conf.start_level);
-    my_printf("Size : %i*%i\n", tetris.conf.map_width, tetris.conf.map_height);
+        printw("Next : No\n");
+    printw("Level : %i\n", config->start_level);
+    printw("Size : %i*%i\n", config->map_width, config->map_height);
     display_tetriminos(tetris);
-    my_printf("Press any key to start Tetris\n");
-    return 0;
+    printw("Press any key to start Tetris\n");
+    refresh();
+    getch();
+    endwin();
+    return EXIT_SUCCESS;
 }

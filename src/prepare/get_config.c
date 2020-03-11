@@ -24,14 +24,22 @@ extern const bool INIT_HIDE_NEXT_TERMI;
 
 static int apply_option(char index, config_t *conf)
 {
-    if (apply_option_key_piece(conf, index) == EXIT_FAILURE)
+    if (apply_option_key_piece(conf, index) == EXIT_FAILURE) {
+        my_putstr_error("Key piece error\n");
         return EXIT_FAILURE;
-    if (apply_option_key_other(conf, index) == EXIT_FAILURE)
+    }
+    if (apply_option_key_menu(conf, index) == EXIT_FAILURE) {
+        my_putstr_error("Key Menu error\n");
         return EXIT_FAILURE;
-    if (apply_option_misc(conf, index) == EXIT_FAILURE)
+    }
+    if (apply_option_misc(conf, index) == EXIT_FAILURE) {
+        my_putstr_error("Misc option error\n");
         return EXIT_FAILURE;
-    if (apply_option_map_size(conf, index) == EXIT_FAILURE)
+    }
+    if (apply_option_map_size(conf, index) == EXIT_FAILURE) {
+        my_putstr_error("Map size error\n");
         return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }
 
@@ -70,7 +78,6 @@ int get_config(config_t *conf, char **argv, int argc)
             return EXIT_FAILURE;
         }
     }
-    debug_display_config(conf);
     if (check_for_option_error(conf) == EXIT_FAILURE) {
         my_putstr_error("Option error : value error\n");
         return EXIT_FAILURE;
