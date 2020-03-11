@@ -7,7 +7,7 @@
 
 #include "tetris.h"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **env)
 {
     bool show_help = have_str_in_array(argv, argc, "-h");
 
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     if (show_help) {
         return usage(EXIT_SUCCESS);
     } else {
-        return tetris(argc, argv);
+        return tetris(argc, argv, env);
     }
     return EXIT_SUCCESS;
 }
