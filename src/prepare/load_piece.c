@@ -58,6 +58,8 @@ static int matrix_create(tetrimino_t *tetri, char **file)
         if (!have_only_correct_char_in_str(file[i], TETRIMINO_CHAR))
             return EXIT_ERROR;
         len++;
+        if (my_strlen(file[i]) > tetri->width || tetri->width <= 0)
+            len = (-1);
     }
     if (len != tetri->height)
         return EXIT_ERROR;

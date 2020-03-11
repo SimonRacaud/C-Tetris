@@ -81,5 +81,6 @@ const key_s KEY_SPEC[] = {
     { KEY_IC,        "Insert"          },
     { KEY_DC,        "Delete"          },
     { KEY_NPAGE,     "Page down"       },
-    { KEY_PPAGE,     "Page up"         }
+    { KEY_PPAGE,     "Page up"         },
+    { ' ',           "(space)"         },
 };

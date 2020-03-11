@@ -16,7 +16,7 @@ static char *get_key(int val)
 {
     char *key;
 
-    if (val >= 32 && val <= 125) {
+    if (val >= 33 && val <= 125) {
         key = malloc(sizeof(char) * 2);
         if (!key)
             return NULL;
