@@ -80,18 +80,18 @@ const bool INIT_HIDE_NEXT_TERMI = false;
 // Keyboard
 
 const key_s KEY_SPEC[] = {
-    { KEY_UP,        "Up arrow"        },
-    { KEY_DOWN,      "Down arrow"      },
-    { KEY_LEFT,      "Left arrow"      },
-    { KEY_RIGHT,     "Right arrow"     },
-    { KEY_HOME,      "Home"            },
-    { KEY_END,       "End"             },
-    { KEY_BACKSPACE, "Backspace"       },
-    { KEY_IC,        "Insert"          },
-    { KEY_DC,        "Delete"          },
-    { KEY_NPAGE,     "Page down"       },
-    { KEY_PPAGE,     "Page up"         },
-    { ' ',           "(space)"         },
+    {KEY_UP,        "Up arrow"        },
+    {KEY_DOWN,      "Down arrow"      },
+    {KEY_LEFT,      "Left arrow"      },
+    {KEY_RIGHT,     "Right arrow"     },
+    {KEY_HOME,      "Home"            },
+    {KEY_END,       "End"             },
+    {KEY_BACKSPACE, "Backspace"       },
+    {KEY_IC,        "Insert"          },
+    {KEY_DC,        "Delete"          },
+    {KEY_NPAGE,     "Page down"       },
+    {KEY_PPAGE,     "Page up"         },
+    {' ',           "(space)"         },
 };
 
 //
