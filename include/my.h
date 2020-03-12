@@ -50,11 +50,11 @@ char *my_strcat(char *dest, char *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *str);
 char **my_str_to_word_array(char const *str, const char *delim);
-int my_show_word_array(char * const *tab);
-int my_sort_word_array(char **tab);
+int my_show_word_array(char * const *array);
+int my_sort_word_array(char **array);
 void word_array_destroy(char **array);
 int word_array_len(char **array);
-int my_advanced_sort_word_array(char **tab,
+int my_advanced_sort_word_array(char **array,
 int (*cmp)(char const *, char const *));
 
 
@@ -70,7 +70,7 @@ char *my_putnbr_base_s(int nbr, char const *base);
 void my_put_double(double nb, int nb_decimal);
 int my_getnbr(char const *str);
 void my_swap(int *a, int *b);
-void my_sort_int_array(int *tab, int size);
+void my_sort_int_array(int *array, int size);
 int my_compute_power_rec(int nb, int power);
 int my_is_prime(int nb);
 int my_compute_square_root(int nb);

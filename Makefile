@@ -29,17 +29,18 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)rotate/rotate.c							\
 		$(DSRC)display_debug.c							\
+		$(DSRC)get_special_key.c							\
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	tetris
 
-CFLAGS	+= -Wall -Wextra -I./include -g
+CFLAGS	+= -Wall -Wextra -I./include -g -lncurses
 
 all:	$(NAME)
 
-$(NAME):	LIB $(OBJ)
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lncurses
+$(NAME):	$(LIB) $(OBJ)
+	gcc -o $(NAME) $(OBJ) -lncurses -L./lib/my -lmy
 
 LIB:
 	make -C ./lib/my

@@ -107,3 +107,13 @@ const char *TITLE2 =
     "|_   _| __| |/ /_   _| _ \\ |/' _/\n"
     "  | | | _||   <  | | | v / |`._`.\n"
     "  |_| |___|_|\\_\\ |_| |_|_\\_||___/\n";
+
+const char *MYTERM = "TERM=";
+
+const int NB_KEY = 4;
+
+const char *SPECIAL_KEYS[] = {  "kcub1",
+                                "kcuf1",
+                                "kcuu1",
+                                "kcud1"
+                            };

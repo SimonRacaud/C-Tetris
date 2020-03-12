@@ -26,10 +26,11 @@ int display_menu(game_t *tetris)
     mvwprintw(menu->w, 3, 2, "Score: %d", tetris->score);
     mvwprintw(menu->w, 5, 2, "High Score: %d", tetris->high_score);
     mvwprintw(menu->w, 7, 2, "Level: %d", tetris->level);
-    mvwprintw(menu->w, 9, 2, "Lines: %d", tetris->lines);
+    mvwprintw(menu->w, 9, 2, "Lines: %d", tetris->line);
     display_time(tetris, menu);
     mvwprintw(menu->w, 13, 2, "Next piece:");
     for (int i = 0; i < tetris->pieces.pc[2].height; i++)
-        mvwprintw(menu->w, 15 + i, menu->width / 4, "%s", tetris->pieces.pc[2].mtx[i]);
+        mvwprintw(menu->w, 15 + i, menu->width / 4, "%s",
+            tetris->pieces.pc[2].mtx[i]);
     return EXIT_SUCCESS;
 }
