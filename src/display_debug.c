@@ -13,7 +13,6 @@ static int key_manage(char *str, char *key)
 {
     if (key && key[0] == '\e') {
         printw("%s : ^E%s\n", str, key + 1);
-
     } else if (key && key[0] == ' ') {
         printw("%s : (space)\n", str);
     } else
