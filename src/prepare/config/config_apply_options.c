@@ -10,19 +10,19 @@
 int apply_option_key_piece(config_t *conf, char index)
 {
     if (index == 'l') {
-        if (get_key_code(optarg, &conf->key_left) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_left) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 'r') {
-        if (get_key_code(optarg, &conf->key_right) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_right) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 't') {
-        if (get_key_code(optarg, &conf->key_turn) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_turn) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 'd') {
-        if (get_key_code(optarg, &conf->key_drop) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_drop) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -32,11 +32,11 @@ int apply_option_key_menu(config_t *conf, char index)
 {
 
     if (index == 'q') {
-        if (get_key_code(optarg, &conf->key_quit) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_quit) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 'p') {
-        if (get_key_code(optarg, &conf->key_pause) == EXIT_FAILURE)
+        if (get_key_code(optarg, &conf->my_key_pause) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;

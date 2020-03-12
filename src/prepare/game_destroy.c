@@ -7,11 +7,16 @@
 
 #include "tetris.h"
 
+extern const int NB_KEY;
+
 void game_destroy(game_t *tetris)
 {
     pieces_destroy(&tetris->pieces);
     for (int i = 0; i < tetris->conf.map_height; i++) {
         free(tetris->map[i]);
     }
+    for (int i = 0; i < NB_KEY; i++)
+        free(tetris->conf.special_key[i]);
+    free(tetris->conf.special_key);
     free(tetris->map);
 }

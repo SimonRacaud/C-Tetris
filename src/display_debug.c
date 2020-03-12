@@ -5,7 +5,6 @@
 ** tetris
 */
 
-#include <curses.h>
 #include "game_t.h"
 #include "debug.h"
 #include "my.h"
@@ -47,17 +46,17 @@ static int key_display(config_t *config)
     char *name[] = {"Key Left", "Key Right", "Key Turn", "Key Drop",
     "Key Quit", "Key Pause"};
 
-    if (key_manage(name[0], get_key(config->key_left)) == EXIT_ERROR)
+    if (key_manage(name[0], get_key(config->my_key_left)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[1], get_key(config->key_right)) == EXIT_ERROR)
+    if (key_manage(name[1], get_key(config->my_key_right)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[2], get_key(config->key_turn)) == EXIT_ERROR)
+    if (key_manage(name[2], get_key(config->my_key_turn)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[3], get_key(config->key_drop)) == EXIT_ERROR)
+    if (key_manage(name[3], get_key(config->my_key_drop)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[4], get_key(config->key_quit)) == EXIT_ERROR)
+    if (key_manage(name[4], get_key(config->my_key_quit)) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[5], get_key(config->key_pause)) == EXIT_ERROR)
+    if (key_manage(name[5], get_key(config->my_key_pause)) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }

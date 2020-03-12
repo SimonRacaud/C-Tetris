@@ -23,7 +23,7 @@ typedef struct game {
     char **map;
     int score;
     int high_score;
-    int lines;
+    int line;
     int level;
     clock_t time;
 } game_t;

@@ -8,11 +8,6 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-typedef struct file_list {
-    struct file_list *next;
-    char *filename;
-} file_list_t;
-
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -25,6 +20,11 @@ typedef struct file_list {
 #include "window.h"
 
 #define EXIT_ERROR 84
+
+typedef struct file_list {
+    struct file_list *next;
+    char *filename;
+} file_list_t;
 
 // Base Functions
 
@@ -48,8 +48,8 @@ void pieces_destroy(pieces_t *pieces);
 void game_destroy(game_t *tetris);
 
 // Prepare and Init
-int game_init(game_t *tetris, char **argv, int argc);
-int get_config(config_t *conf, char **argv, int argc);
+int game_init(game_t *tetris, char **argv, int argc, char **env);
+int get_config(config_t *conf, char **argv, int argc, char **env);
 int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
 int sort_tetriminos(tetrimino_t *pc, int size);
@@ -69,5 +69,6 @@ int file_list_add(file_list_t **list, const char *filename);
 int show_debug_screen(game_t *tetris);
 
 int rotate(tetrimino_t *piece);
+char **get_special_key(char **env);
 
 #endif

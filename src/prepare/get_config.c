@@ -46,12 +46,12 @@ static int apply_option(char index, config_t *conf)
 static void config_init_default(config_t *conf)
 {
     conf->start_level = INIT_START_LEVEL;
-    conf->key_left = INIT_KEY_LEFT;
-    conf->key_right = INIT_KEY_RIGHT;
-    conf->key_turn = INIT_KEY_TURN;
-    conf->key_drop = INIT_KEY_DROP;
-    conf->key_quit = INIT_KEY_QUIT;
-    conf->key_pause = INIT_KEY_PAUSE;
+    conf->my_key_left = INIT_KEY_LEFT;
+    conf->my_key_right = INIT_KEY_RIGHT;
+    conf->my_key_turn = INIT_KEY_TURN;
+    conf->my_key_drop = INIT_KEY_DROP;
+    conf->my_key_quit = INIT_KEY_QUIT;
+    conf->my_key_pause = INIT_KEY_PAUSE;
     conf->map_height = INIT_MAP_HEIGHT;
     conf->map_width = INIT_MAP_WIDTH;
     conf->hide_next_tetrimino = INIT_HIDE_NEXT_TERMI;
@@ -67,7 +67,7 @@ static int check_for_option_error(config_t *conf)
     return EXIT_SUCCESS;
 }
 
-int get_config(config_t *conf, char **argv, int argc)
+int get_config(config_t *conf, char **argv, int argc, char **env)
 {
     int ret;
 
@@ -82,5 +82,8 @@ int get_config(config_t *conf, char **argv, int argc)
         my_putstr_error("Option error : value error\n");
         return EXIT_FAILURE;
     }
+    conf->special_key = get_special_key(env);
+    if (!conf->special_key)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

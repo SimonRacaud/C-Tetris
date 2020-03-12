@@ -10,17 +10,17 @@
 
 static char **get_new_matrix(int x, int y)
 {
-    char **tab = malloc(sizeof(char *) * y);
+    char **array = malloc(sizeof(char *) * y);
 
-    if (!tab)
+    if (!array)
         return NULL;
     for (int i = 0; i < y; i++) {
-        tab[i] = malloc(sizeof(char) * (x + 1));
-        if (!tab[i])
+        array[i] = malloc(sizeof(char) * (x + 1));
+        if (!array[i])
             return NULL;
-        tab[i][x] = '\0';
+        array[i][x] = '\0';
     }
-    return tab;
+    return array;
 }
 
 static void matrix_rotate(char **new, tetrimino_t *piece)
