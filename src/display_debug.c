@@ -35,6 +35,14 @@ static int key_display(config_t *config)
     return EXIT_SUCCESS;
 }
 
+static void display_tetriminos_content(tetrimino_t *piece)
+{
+    printw("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
+    piece->name, piece->width, piece->height, piece->color);
+    for (int u = 0; u < piece->height; u++)
+        printw("%s\n", piece->mtx[u]);
+}
+
 static void display_tetriminos(game_t *tetris)
 {
     printw("Tetriminos : %i\n", tetris->pieces.size);
@@ -42,10 +50,7 @@ static void display_tetriminos(game_t *tetris)
         if (!tetris->pieces.pc[i].mtx)
             printw("Tetriminos : Name %s : Error\n", PIECE(i).name);
         else {
-            printw("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
-            PIECE(i).name, PIECE(i).width, PIECE(i).height, PIECE(i).color);
-            for (int u = 0; u < PIECE(i).height; u++)
-                printw("%s\n", PIECE(i).mtx[u]);
+            display_tetriminos_content(&tetris->pieces.pc[i]);
         }
     }
 }

@@ -33,8 +33,7 @@ int sort_tetriminos(tetrimino_t *pc, int size)
     do {
         is_sorted = 'T';
         for (int i = 0; i < (size - 1); i++) {
-            if (swap_if_greater(pc, i, &is_sorted))
-                break;
+            swap_if_greater(pc, i, &is_sorted);
         }
     } while (is_sorted == 'F');
     return 0;
