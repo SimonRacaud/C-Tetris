@@ -32,7 +32,7 @@ static char **get_array(void)
     for (int i = 0; i < NB_KEY - 1; i++) {
         key[i] = NULL;
         tmp = tigetstr(SPECIAL_KEYS[i]);
-        if (*tmp == -1)
+        if (!tmp)
             continue;
         key[i] = my_strdup(tmp);
         if (!key[i])

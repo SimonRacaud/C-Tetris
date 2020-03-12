@@ -12,12 +12,12 @@
 
 typedef struct config {
     int start_level;
-    int my_key_left;
-    int my_key_right;
-    int my_key_turn;
-    int my_key_drop;
-    int my_key_quit;
-    int my_key_pause;
+    char my_key_left[4];
+    char my_key_right[4];
+    char my_key_turn[4];
+    char my_key_drop[4];
+    char my_key_quit[4];
+    char my_key_pause[4];
     int map_height;
     int map_width;
     bool hide_next_tetrimino;

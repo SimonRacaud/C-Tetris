@@ -21,15 +21,16 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)game/display/display_board.c				\
 		$(DSRC)prepare/game_init.c						\
 		$(DSRC)prepare/get_config.c						\
+		$(DSRC)prepare/config_init.c					\
 		$(DSRC)prepare/config/config_apply_options.c	\
 		$(DSRC)prepare/load_tetriminos.c				\
 		$(DSRC)prepare/load_piece.c						\
 		$(DSRC)prepare/tetriminos_destroy.c				\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)prepare/sort_tetriminos.c				\
+		$(DSRC)prepare/get_special_key.c				\
 		$(DSRC)rotate/rotate.c							\
 		$(DSRC)display_debug.c							\
-		$(DSRC)get_special_key.c							\
 
 OBJ	=	$(SRC:.c=.o)
 

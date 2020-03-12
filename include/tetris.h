@@ -41,7 +41,7 @@ bool have_char_in_string(char c, const char *str);
 char *merge_path_filename(const char *path, const char *filename);
 char *get_filename_without_ext(const char *filename);
 bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
-int get_key_code(char *str, int *nbr);
+int get_key_code(char *str, char *key);
 
 // Destroy
 void pieces_destroy(pieces_t *pieces);
@@ -50,6 +50,8 @@ void game_destroy(game_t *tetris);
 // Prepare and Init
 int game_init(game_t *tetris, char **argv, int argc, char **env);
 int get_config(config_t *conf, char **argv, int argc, char **env);
+void config_init_default(config_t *conf);
+void config_init_spec_key(config_t *conf);
 int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
 int sort_tetriminos(tetrimino_t *pc, int size);

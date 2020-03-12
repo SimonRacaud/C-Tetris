@@ -66,33 +66,16 @@ const int EDGE_CORNER = 2;
 // DEFAULT CONFIG
 
 const int INIT_START_LEVEL = 1;
-const int INIT_KEY_LEFT = KEY_LEFT;
-const int INIT_KEY_RIGHT = KEY_RIGHT;
-const int INIT_KEY_TURN = KEY_UP;
-const int INIT_KEY_DROP = KEY_DOWN;
-const int INIT_KEY_QUIT = 'q';
-const int INIT_KEY_PAUSE = ' ';
+const char *INIT_KEY_LEFT = NULL;
+const char *INIT_KEY_RIGHT = NULL;
+const char *INIT_KEY_TURN = NULL;
+const char *INIT_KEY_DROP = NULL;
+const char *INIT_KEY_QUIT = "q";
+const char *INIT_KEY_PAUSE = " ";
 const int INIT_MAP_HEIGHT = 10;
 const int INIT_MAP_WIDTH = 20;
 const bool INIT_DEBUG_MODE = false;
 const bool INIT_HIDE_NEXT_TERMI = false;
-
-// Keyboard
-
-const key_s KEY_SPEC[] = {
-    {KEY_UP,        "Up arrow"        },
-    {KEY_DOWN,      "Down arrow"      },
-    {KEY_LEFT,      "Left arrow"      },
-    {KEY_RIGHT,     "Right arrow"     },
-    {KEY_HOME,      "Home"            },
-    {KEY_END,       "End"             },
-    {KEY_BACKSPACE, "Backspace"       },
-    {KEY_IC,        "Insert"          },
-    {KEY_DC,        "Delete"          },
-    {KEY_NPAGE,     "Page down"       },
-    {KEY_PPAGE,     "Page up"         },
-    {' ',           "(space)"         },
-};
 
 //
 
@@ -112,8 +95,15 @@ const char *MYTERM = "TERM=";
 
 const int NB_KEY = 4;
 
-const char *SPECIAL_KEYS[] = {  "kcub1",
-                                "kcuf1",
-                                "kcuu1",
-                                "kcud1"
-                            };
+const int LEFT_KEY_ID = 0;
+const int RIGHT_KEY_ID = 1;
+const int UP_KEY_ID = 2;
+const int DOWN_KEY_ID = 3;
+
+const char *SPECIAL_KEYS[][2] =
+{
+    {"kcub1", "key left"},
+    {"kcuf1", "key right"},
+    {"kcuu1", "key up"},
+    {"kcud1", "key down"}
+};
