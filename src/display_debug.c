@@ -8,30 +8,7 @@
 #include "game_t.h"
 #include "debug.h"
 #include "my.h"
-/*
-extern const key_s KEY_SPEC[];
 
-static char *get_key(int val)
-{
-    char *key;
-
-    if (val >= 33 && val <= 125) {
-        key = malloc(sizeof(char) * 2);
-        if (!key)
-            return NULL;
-        key[1] = '\0';
-        key[0] = val;
-    }
-    else {
-        for (int i = 0; i < 23; i++) {
-            if (KEY_SPEC[i].code == val)
-                return my_strdup(KEY_SPEC[i].cqfd);
-        }
-        return NULL;
-    }
-    return key;
-}
-*/
 static int key_manage(char *str, char *key)
 {
     printw("%s : %s\n", str, key);
