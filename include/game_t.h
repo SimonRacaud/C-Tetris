@@ -25,7 +25,7 @@ typedef struct game {
     int high_score;
     int line;
     int level;
-    clock_t time;
+    int time_sub;
 } game_t;
 
 #endif

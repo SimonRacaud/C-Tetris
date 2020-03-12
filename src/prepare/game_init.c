@@ -13,8 +13,8 @@ static void game_init_struct(game_t *tetris)
     tetris->score = 0;
     tetris->high_score = 0;
     tetris->line = 0;
-    tetris->level = 0;
-    tetris->time = 0;
+    tetris->level = tetris->conf.start_level;
+    tetris->time_sub = 0;
     tetris->exit_status = EXIT_SUCCESS;
 }
 
@@ -43,5 +43,6 @@ int game_init(game_t *tetris, char **argv, int argc, char **env)
         return EXIT_FAILURE;
     if (game_map_create(tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    game_init_struct(tetris);
     return EXIT_SUCCESS;
 }

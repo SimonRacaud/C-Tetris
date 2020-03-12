@@ -29,8 +29,6 @@ static const char *USAGE =
 
 int usage(int status)
 {
-    my_putstr("\033[1m\033[32m");
     my_putstr(USAGE);
-    my_putstr("\033[0m");
     return status;
 }

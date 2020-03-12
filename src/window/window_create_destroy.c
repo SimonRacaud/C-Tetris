@@ -31,8 +31,6 @@ int window_create(game_t *tetris)
     board->w = subwin(stdscr, board->height, board->width, TITLE_HEIGHT, 0);
     menu->w = subwin(stdscr, menu->height, menu->width, TITLE_HEIGHT,
     board->width);
-    box(tetris->board.w, ACS_VLINE, ACS_HLINE);
-    box(tetris->menu.w, ACS_VLINE, ACS_HLINE);
     refresh();
     return EXIT_SUCCESS;
 }

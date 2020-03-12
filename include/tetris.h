@@ -71,4 +71,9 @@ int show_debug_screen(game_t *tetris);
 int rotate(tetrimino_t *piece);
 char **get_special_key(char **env);
 
+// Display
+int display(game_t *tetris);
+int display_menu(game_t *tetris);
+int display_board(game_t *tetris);
+
 #endif
