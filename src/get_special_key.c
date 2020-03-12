@@ -11,7 +11,7 @@
 
 extern const int NB_KEY;
 extern const char *MYTERM;
-extern const char **SPECIAL_KEYS;
+extern const char *SPECIAL_KEYS[];
 
 static char *my_get_term(char **env)
 {
@@ -23,13 +23,18 @@ static char *my_get_term(char **env)
 
 static char **get_array(void)
 {
+    char *tmp;
     char **key = malloc(sizeof(char *) * (NB_KEY + 1));
 
     if (!key)
         return NULL;
     key[NB_KEY] = NULL;
-    for (int i = 0; i < NB_KEY; i++) {
-        key[i] = my_strdup(tigetstr(SPECIAL_KEYS[i]));
+    for (int i = 0; i < NB_KEY - 1; i++) {
+        key[i] = NULL;
+        tmp = tigetstr(SPECIAL_KEYS[i]);
+        if (*tmp == -1)
+            continue;
+        key[i] = my_strdup(tmp);
         if (!key[i])
             return NULL;
     }
