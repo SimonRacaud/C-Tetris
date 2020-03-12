@@ -40,12 +40,12 @@ int my_get_check_nbr(char *str, int *nbr, const char *ignore)
     return EXIT_SUCCESS;
 }
 
-int get_key_code(char *str, int *nbr)
+int get_key_code(char *str, char *key)
 {
     int len = my_strlen(str);
 
-    if (len != 1)
+    if (!(len == 1 || len == 3))
         return EXIT_FAILURE;
-    (*nbr) = (int)str[0];
+    my_strcpy(key, str);
     return EXIT_SUCCESS;
 }

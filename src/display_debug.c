@@ -8,7 +8,7 @@
 #include "game_t.h"
 #include "debug.h"
 #include "my.h"
-
+/*
 extern const key_s KEY_SPEC[];
 
 static char *get_key(int val)
@@ -31,13 +31,10 @@ static char *get_key(int val)
     }
     return key;
 }
-
+*/
 static int key_manage(char *str, char *key)
 {
-    if (!key)
-        return EXIT_ERROR;
     printw("%s : %s\n", str, key);
-    free(key);
     return EXIT_SUCCESS;
 }
 
@@ -46,17 +43,17 @@ static int key_display(config_t *config)
     char *name[] = {"Key Left", "Key Right", "Key Turn", "Key Drop",
     "Key Quit", "Key Pause"};
 
-    if (key_manage(name[0], get_key(config->my_key_left)) == EXIT_ERROR)
+    if (key_manage(name[0], config->my_key_left) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[1], get_key(config->my_key_right)) == EXIT_ERROR)
+    if (key_manage(name[1], config->my_key_right) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[2], get_key(config->my_key_turn)) == EXIT_ERROR)
+    if (key_manage(name[2], config->my_key_turn) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[3], get_key(config->my_key_drop)) == EXIT_ERROR)
+    if (key_manage(name[3], config->my_key_drop) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[4], get_key(config->my_key_quit)) == EXIT_ERROR)
+    if (key_manage(name[4], config->my_key_quit) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[5], get_key(config->my_key_pause)) == EXIT_ERROR)
+    if (key_manage(name[5], config->my_key_pause) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }

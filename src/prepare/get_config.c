@@ -11,12 +11,12 @@ extern const char *OPTIONS;
 extern const struct option LONG_OPTIONS[];
 
 extern const int INIT_START_LEVEL;
-extern const int INIT_KEY_LEFT;
-extern const int INIT_KEY_RIGHT;
-extern const int INIT_KEY_TURN;
-extern const int INIT_KEY_DROP;
-extern const int INIT_KEY_QUIT;
-extern const int INIT_KEY_PAUSE;
+extern const char *INIT_KEY_LEFT;
+extern const char *INIT_KEY_RIGHT;
+extern const char *INIT_KEY_TURN;
+extern const char *INIT_KEY_DROP;
+extern const char *INIT_KEY_QUIT;
+extern const char *INIT_KEY_PAUSE;
 extern const int INIT_MAP_HEIGHT;
 extern const int INIT_MAP_WIDTH;
 extern const bool INIT_DEBUG_MODE;
@@ -43,21 +43,6 @@ static int apply_option(char index, config_t *conf)
     return EXIT_SUCCESS;
 }
 
-static void config_init_default(config_t *conf)
-{
-    conf->start_level = INIT_START_LEVEL;
-    conf->my_key_left = INIT_KEY_LEFT;
-    conf->my_key_right = INIT_KEY_RIGHT;
-    conf->my_key_turn = INIT_KEY_TURN;
-    conf->my_key_drop = INIT_KEY_DROP;
-    conf->my_key_quit = INIT_KEY_QUIT;
-    conf->my_key_pause = INIT_KEY_PAUSE;
-    conf->map_height = INIT_MAP_HEIGHT;
-    conf->map_width = INIT_MAP_WIDTH;
-    conf->hide_next_tetrimino = INIT_HIDE_NEXT_TERMI;
-    conf->debug_mode = INIT_DEBUG_MODE;
-}
-
 static bool check_key(const char *key)
 {
     int len = my_strlen(key);
@@ -79,11 +64,11 @@ static int check_for_option_error(config_t *conf)
         return EXIT_FAILURE;
     if (conf->map_width < 1 || conf->map_height < 1)
         return EXIT_FAILURE;
-    if (!check_key(conf->key_left) || !check_key(conf->key_right))
+    if (!check_key(conf->my_key_left) || !check_key(conf->my_key_right))
         return EXIT_FAILURE;
-    if (!check_key(conf->key_turn) || !check_key(conf->key_drop))
+    if (!check_key(conf->my_key_turn) || !check_key(conf->my_key_drop))
         return EXIT_FAILURE;
-    if (!check_key(conf->key_quit) || !check_key(conf->key_pause))
+    if (!check_key(conf->my_key_quit) || !check_key(conf->my_key_pause))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
@@ -99,12 +84,13 @@ int get_config(config_t *conf, char **argv, int argc, char **env)
             return EXIT_FAILURE;
         }
     }
+    conf->special_key = get_special_key(env);
+    if (!conf->special_key)
+        return EXIT_FAILURE;
+    config_init_spec_key(conf);
     if (check_for_option_error(conf) == EXIT_FAILURE) {
         my_putstr_error("Option error : value error\n");
         return EXIT_FAILURE;
     }
-    conf->special_key = get_special_key(env);
-    if (!conf->special_key)
-        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
