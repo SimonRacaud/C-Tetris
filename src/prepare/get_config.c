@@ -58,11 +58,32 @@ static void config_init_default(config_t *conf)
     conf->debug_mode = INIT_DEBUG_MODE;
 }
 
+static bool check_key(const char *key)
+{
+    int len = my_strlen(key);
+
+    if (len < 1)
+        return false;
+    if (len == 1) {
+        return true;
+    } else if (len == 3) {
+        if (my_strncmp(key, "\eO", 2) == 0)
+            return true;
+    }
+    return false;
+}
+
 static int check_for_option_error(config_t *conf)
 {
     if (conf->start_level < 1)
         return EXIT_FAILURE;
     if (conf->map_width < 1 || conf->map_height < 1)
+        return EXIT_FAILURE;
+    if (!check_key(conf->key_left) || !check_key(conf->key_right))
+        return EXIT_FAILURE;
+    if (!check_key(conf->key_turn) || !check_key(conf->key_drop))
+        return EXIT_FAILURE;
+    if (!check_key(conf->key_quit) || !check_key(conf->key_pause))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

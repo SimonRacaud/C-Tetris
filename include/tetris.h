@@ -59,8 +59,6 @@ int apply_option_key_menu(config_t *conf, char index);
 int apply_option_misc(config_t *conf, char index);
 int apply_option_map_size(config_t *conf, char index);
 
- void debug_display_config(config_t *config); // DEBUG
-
 // Lisked file list
 void file_list_destroy(file_list_t *list);
 int file_list_add(file_list_t **list, const char *filename);
