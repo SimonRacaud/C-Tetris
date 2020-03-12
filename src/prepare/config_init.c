@@ -41,12 +41,13 @@ void config_init_default(config_t *conf)
 
 void config_init_spec_key(config_t *conf)
 {
-    if (!conf->my_key_left)
+    if (!conf->my_key_left[0])
         my_strncpy(conf->my_key_left, conf->special_key[LEFT_KEY_ID], 4);
-    if (!conf->my_key_right)
+    if (!conf->my_key_right[0])
         my_strncpy(conf->my_key_right, conf->special_key[RIGHT_KEY_ID], 4);
-    if (!conf->my_key_turn)
+    if (!conf->my_key_turn[0])
         my_strncpy(conf->my_key_turn, conf->special_key[UP_KEY_ID], 4);
-    if (!conf->my_key_drop)
+    if (!conf->my_key_drop[0]) {
         my_strncpy(conf->my_key_drop, conf->special_key[DOWN_KEY_ID], 4);
+    }
 }
