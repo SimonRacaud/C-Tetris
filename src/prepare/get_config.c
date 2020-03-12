@@ -47,8 +47,9 @@ static bool check_key(const char *key)
 {
     int len = my_strlen(key);
 
-    if (len < 1)
+    if (len < 1) {
         return false;
+    }
     if (len == 1) {
         return true;
     } else if (len == 3) {
