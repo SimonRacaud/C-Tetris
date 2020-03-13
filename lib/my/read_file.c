@@ -7,8 +7,8 @@
 
 #include "my.h"
 
-static int BUFFER_BLOCK = 42;
-static int BUFFER_MAX_LEN = 10000000;
+static const int BUFFER_BLOCK = 42;
+static const int BUFFER_MAX_LEN = 10000000;
 
 static int realloc_buffer(char **buffer, int *buffer_len, int str_len)
 {
