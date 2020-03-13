@@ -107,3 +107,6 @@ const char *SPECIAL_KEYS[][2] =
     {"kcuu1", "key up"},
     {"kcud1", "key down"}
 };
+
+//TIME BETWEEN TWO REFRESH IN SECONDS
+const int REFRESH_TIME = 1;
