@@ -31,6 +31,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/get_special_key.c				\
 		$(DSRC)rotate/rotate.c							\
 		$(DSRC)display_debug.c							\
+		$(DSRC)rotate/clean_game.c							\
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -70,6 +70,7 @@ int show_debug_screen(game_t *tetris);
 
 int rotate(tetrimino_t *piece);
 char **get_special_key(char **env);
+void clean_lines_map(game_t *game);
 
 // Display
 int display(game_t *tetris);
