@@ -9,7 +9,6 @@
 
 static void game_init_struct(game_t *tetris)
 {
-    tetris->map = NULL;
     tetris->score = 0;
     tetris->high_score = 0;
     tetris->line = 0;
