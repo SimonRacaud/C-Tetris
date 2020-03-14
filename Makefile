@@ -42,6 +42,7 @@ CFLAGS	+= -Wall -Wextra -I./include -g -lncurses
 all:	$(NAME)
 
 $(NAME):	$(LIB) $(OBJ)
+	make -C ./lib/my
 	gcc -o $(NAME) $(OBJ) -lncurses -L./lib/my -lmy
 
 LIB:
