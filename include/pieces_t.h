@@ -27,7 +27,7 @@ typedef struct pieces {
 } pieces_t;
 
 typedef struct player_piece {
-    pieces_t *piece;
+    tetrimino_t *piece;
     coord_t coord;
 } player_piece_t;
 
