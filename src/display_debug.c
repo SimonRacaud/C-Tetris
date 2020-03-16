@@ -25,17 +25,17 @@ static int key_display(config_t *config)
     char *name[] = {"Key Left", "Key Right", "Key Turn", "Key Drop",
     "Key Quit", "Key Pause"};
 
-    if (key_manage(name[0], config->my_key_left) == EXIT_ERROR)
+    if (key_manage(name[0], config->key[LEFT_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[1], config->my_key_right) == EXIT_ERROR)
+    if (key_manage(name[1], config->key[RIGHT_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[2], config->my_key_turn) == EXIT_ERROR)
+    if (key_manage(name[2], config->key[TURN_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[3], config->my_key_drop) == EXIT_ERROR)
+    if (key_manage(name[3], config->key[DROP_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[4], config->my_key_quit) == EXIT_ERROR)
+    if (key_manage(name[4], config->key[QUIT_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (key_manage(name[5], config->my_key_pause) == EXIT_ERROR)
+    if (key_manage(name[5], config->key[PAUSE_KEY]) == EXIT_ERROR)
         return EXIT_ERROR;
     return EXIT_SUCCESS;
 }

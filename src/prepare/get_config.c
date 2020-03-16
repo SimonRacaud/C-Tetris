@@ -65,11 +65,11 @@ static int check_for_option_error(config_t *conf)
         return EXIT_FAILURE;
     if (conf->map_width < 1 || conf->map_height < 1)
         return EXIT_FAILURE;
-    if (!check_key(conf->my_key_left) || !check_key(conf->my_key_right))
+    if (!check_key(conf->key[LEFT_KEY]) || !check_key(conf->key[RIGHT_KEY]))
         return EXIT_FAILURE;
-    if (!check_key(conf->my_key_turn) || !check_key(conf->my_key_drop))
+    if (!check_key(conf->key[TURN_KEY]) || !check_key(conf->key[DROP_KEY]))
         return EXIT_FAILURE;
-    if (!check_key(conf->my_key_quit) || !check_key(conf->my_key_pause))
+    if (!check_key(conf->key[QUIT_KEY]) || !check_key(conf->key[PAUSE_KEY]))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

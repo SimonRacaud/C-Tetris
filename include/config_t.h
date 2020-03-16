@@ -10,14 +10,16 @@
 
 #include <stdbool.h>
 
+#define LEFT_KEY 0
+#define RIGHT_KEY 1
+#define TURN_KEY 2
+#define DROP_KEY 3
+#define QUIT_KEY 4
+#define PAUSE_KEY 5
+
 typedef struct config {
     int start_level;
-    char my_key_left[4];
-    char my_key_right[4];
-    char my_key_turn[4];
-    char my_key_drop[4];
-    char my_key_quit[4];
-    char my_key_pause[4];
+    char key[6][4];
     int map_height;
     int map_width;
     bool hide_next_tetrimino;

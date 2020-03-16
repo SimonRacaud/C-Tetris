@@ -27,12 +27,12 @@ extern const int DOWN_KEY_ID;
 void config_init_default(config_t *conf)
 {
     conf->start_level = INIT_START_LEVEL;
-    conf->my_key_left[0] = 0;
-    conf->my_key_right[0] = 0;
-    conf->my_key_turn[0] = 0;
-    conf->my_key_drop[0] = 0;
-    my_strncpy(conf->my_key_quit, INIT_KEY_QUIT, 4);
-    my_strncpy(conf->my_key_pause, INIT_KEY_PAUSE, 4);
+    conf->key[LEFT_KEY][0] = 0;
+    conf->key[RIGHT_KEY][0] = 0;
+    conf->key[TURN_KEY][0] = 0;
+    conf->key[DROP_KEY][0] = 0;
+    my_strncpy(conf->key[QUIT_KEY], INIT_KEY_QUIT, 4);
+    my_strncpy(conf->key[PAUSE_KEY], INIT_KEY_PAUSE, 4);
     conf->map_height = INIT_MAP_HEIGHT;
     conf->map_width = INIT_MAP_WIDTH;
     conf->hide_next_tetrimino = INIT_HIDE_NEXT_TERMI;
@@ -41,13 +41,13 @@ void config_init_default(config_t *conf)
 
 void config_init_spec_key(config_t *conf)
 {
-    if (!conf->my_key_left[0])
-        my_strncpy(conf->my_key_left, conf->special_key[LEFT_KEY_ID], 4);
-    if (!conf->my_key_right[0])
-        my_strncpy(conf->my_key_right, conf->special_key[RIGHT_KEY_ID], 4);
-    if (!conf->my_key_turn[0])
-        my_strncpy(conf->my_key_turn, conf->special_key[UP_KEY_ID], 4);
-    if (!conf->my_key_drop[0]) {
-        my_strncpy(conf->my_key_drop, conf->special_key[DOWN_KEY_ID], 4);
+    if (!conf->key[LEFT_KEY][0])
+        my_strncpy(conf->key[LEFT_KEY], conf->special_key[LEFT_KEY_ID], 4);
+    if (!conf->key[RIGHT_KEY][0])
+        my_strncpy(conf->key[RIGHT_KEY], conf->special_key[RIGHT_KEY_ID], 4);
+    if (!conf->key[TURN_KEY][0])
+        my_strncpy(conf->key[TURN_KEY], conf->special_key[UP_KEY_ID], 4);
+    if (!conf->key[DROP_KEY][0]) {
+        my_strncpy(conf->key[DROP_KEY], conf->special_key[DOWN_KEY_ID], 4);
     }
 }
