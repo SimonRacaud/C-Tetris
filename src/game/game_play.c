@@ -8,7 +8,7 @@
 #include "tetris.h"
 
 extern int REFRESH_TIME;
-void my_colision(game_t *tetris);
+
 static int piece_falling_loop(game_t *tetris)
 {
     clock_t time_display = clock();
