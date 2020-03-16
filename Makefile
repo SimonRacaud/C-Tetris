@@ -36,6 +36,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/rotate.c							\
 		$(DSRC)piece/write_on_map.c						\
 		$(DSRC)display_debug.c							\
+		$(DSRC)colision.c							\
 		$(DSRC)game/display/display_player_pieces.c		\
 
 OBJ	=	$(SRC:.c=.o)

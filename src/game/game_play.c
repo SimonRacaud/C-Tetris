@@ -8,7 +8,7 @@
 #include "tetris.h"
 
 extern int REFRESH_TIME;
-
+void my_colision(game_t *tetris);
 static int piece_falling_loop(game_t *tetris)
 {
     clock_t time_display = clock();
@@ -21,6 +21,8 @@ static int piece_falling_loop(game_t *tetris)
         if (((now - time_display) / CLOCKS_PER_SEC) >= REFRESH_TIME) {
             display(tetris);
             // TODO : move piece (down)
+            my_colision(tetris);
+            tetris->ppiece.coord.y++;
             // TODO : eval piece (if it touch another piece in the map)
             time_display = clock();
         }
