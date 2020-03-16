@@ -9,8 +9,11 @@
 
 extern int REFRESH_TIME;
 
-static void piece_falling_loop(game_t *tetris)
+static int piece_falling_loop(game_t *tetris)
 {
+    clock_t time_display = clock();
+    clock_t now;
+
     while (tetris->status == RUNNING && tetris->ppiece.is_fall) {
         if (catch_input(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
@@ -22,17 +25,16 @@ static void piece_falling_loop(game_t *tetris)
             time_display = clock();
         }
     }
+    return EXIT_SUCCESS;
 }
 
 int game_play(game_t *tetris)
 {
-    clock_t time_display = clock();
-    clock_t now;
-
     while (tetris->status == RUNNING) {
         // set_cuurent_piece : set next piece as current piece (player_piece_t)
         // set_next_piece : Get new randow next piece
-        piece_falling_loop(tetris);
+        if (piece_falling_loop(tetris) == EXIT_ERROR)
+            return EXIT_ERROR;
         map_eval(tetris);
     }
     return tetris->exit_status;

@@ -8,6 +8,8 @@
 #ifndef PIECES_H
 #define PIECES_H
 
+#include <stdbool.h>
+
 typedef struct coord {
     int x;
     int y;

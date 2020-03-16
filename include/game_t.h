@@ -27,6 +27,7 @@ typedef struct game {
     config_t conf;
     pieces_t pieces;
     player_piece_t ppiece;
+    tetrimino_t *next_piece;
     char **map;
     int score;
     int high_score;
