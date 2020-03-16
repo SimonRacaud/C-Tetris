@@ -1,16 +1,15 @@
 /*
-** EPITECH PROJECT, 2019
-** tetris
+** EPITECH PROJECT, 2020
+** PROJECT_NAME
 ** File description:
-** tetris
+** Created: 2020-03-16T11:34:58+01:00 | Author: sullivan, simon
 */
 
-#include <stdbool.h>
 #include "tetris.h"
 
 extern char BACKG_CHAR;
 
-static void break_line(game_t *game, int y)
+static void remove_line(game_t *game, int y)
 {
     char *temp = game->map[y];
 
@@ -29,9 +28,12 @@ static bool is_full_line(char *line, int size)
     return true;
 }
 
-void clean_lines_map(game_t *game)
+void map_eval(game_t *game)
 {
-    for (int y = 0; y < game->conf.map_height; y++)
-        if (is_full_line(game->map[y], game->conf.map_width))
-            break_line(game, y);
+    for (int y = 0; y < game->conf.map_height; y++) {
+        if (is_full_line(game->map[y], game->conf.map_width)) {
+            remove_line(game, y);
+            game->line++;
+        }
+    }
 }

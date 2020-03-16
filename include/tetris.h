@@ -34,6 +34,10 @@ int tetris(int argc, char **argv, char **env);
 // GAME
 int game_play(game_t *tetris);
 
+// MAP
+void map_eval(game_t *game);
+int write_on_map(game_t *tetris);
+
 // Tools Functions
 bool have_str_in_array(char **array, int size, const char *str);
 int my_get_check_nbr(char *str, int *nbr, const char *ignore);
@@ -70,7 +74,6 @@ int show_debug_screen(game_t *tetris);
 
 int rotate(tetrimino_t *piece);
 char **get_special_key(char **env);
-void clean_lines_map(game_t *game);
 
 // Display
 int display(game_t *tetris);
