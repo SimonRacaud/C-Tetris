@@ -77,4 +77,8 @@ int display(game_t *tetris);
 int display_menu(game_t *tetris);
 int display_board(game_t *tetris);
 
+// INPUT
+int catch_input(game_t *tetris);
+bool get_input(char *in, int size);
+
 #endif

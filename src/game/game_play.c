@@ -11,14 +11,19 @@ extern int REFRESH_TIME;
 
 int game_play(game_t *tetris)
 {
-    clock_t my_clock = clock();
-    clock_t elepse_time = clock();
+    clock_t time_display = clock();
+    clock_t now;
 
-    while (1) {
-        display(tetris);
-        while ((elepse_time - my_clock) / CLOCKS_PER_SEC < REFRESH_TIME)
-            elepse_time = clock();
-        my_clock = clock();
+    while (true) {
+        if (catch_input(tetris) == EXIT_ERROR)
+            return EXIT_ERROR;
+        now = clock();
+        if (((now - time_display) / CLOCKS_PER_SEC) >= REFRESH_TIME) {
+            display(tetris);
+            time_display = clock();
+        }
+        if (tetris->status != RUNNING)
+            break;
     }
     return tetris->exit_status;
 }

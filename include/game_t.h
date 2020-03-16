@@ -13,8 +13,15 @@
 #include "pieces_t.h"
 #include "window_t.h"
 
+enum game_status {
+    RUNNING,
+    WIN,
+    FAIL
+};
+
 typedef struct game {
     int exit_status;
+    enum game_status status;
     window_t menu;
     window_t board;
     config_t conf;

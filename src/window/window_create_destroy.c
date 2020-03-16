@@ -19,6 +19,7 @@ int window_create(game_t *tetris)
     window_t *menu = &tetris->menu;
 
     initscr();
+    timeout(0);
     curs_set(0);
     tetris->board.width = tetris->conf.map_width + 2;
     tetris->board.height = tetris->conf.map_height + 3;

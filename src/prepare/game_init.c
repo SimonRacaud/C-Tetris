@@ -10,6 +10,7 @@
 static void game_init_struct(game_t *tetris)
 {
     tetris->score = 0;
+    tetris->status = RUNNING;
     tetris->high_score = 0;
     tetris->line = 0;
     tetris->level = tetris->conf.start_level;
