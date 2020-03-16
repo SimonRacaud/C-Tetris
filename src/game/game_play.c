@@ -14,7 +14,7 @@ int game_play(game_t *tetris)
     clock_t time_display = clock();
     clock_t now;
 
-    while (true) {
+    while (tetris->status == RUNNING) {
         if (catch_input(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
         now = clock();
@@ -22,8 +22,6 @@ int game_play(game_t *tetris)
             display(tetris);
             time_display = clock();
         }
-        if (tetris->status != RUNNING)
-            break;
     }
     return tetris->exit_status;
 }

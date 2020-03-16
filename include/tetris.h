@@ -81,5 +81,6 @@ void display_player_pieces(game_t *tetris, window_t *board);
 // INPUT
 int catch_input(game_t *tetris);
 bool get_input(char *in, int size);
+int input_apply(char *input, int size, game_t *tetris);
 
 #endif

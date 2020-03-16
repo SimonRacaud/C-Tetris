@@ -21,6 +21,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)game/display/display_board.c				\
 		$(DSRC)game/input/catch_input.c					\
 		$(DSRC)game/input/get_input.c					\
+		$(DSRC)game/input/input_apply.c					\
 		$(DSRC)prepare/game_init.c						\
 		$(DSRC)prepare/get_config.c						\
 		$(DSRC)prepare/config_init.c					\

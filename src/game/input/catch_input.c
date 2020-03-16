@@ -15,5 +15,7 @@ int catch_input(game_t *tetris)
 
     if (!have_input)
         return EXIT_SUCCESS;
+    if (input_apply(in, size, tetris) == EXIT_ERROR)
+        return EXIT_ERROR;
     return EXIT_SUCCESS;
 }
