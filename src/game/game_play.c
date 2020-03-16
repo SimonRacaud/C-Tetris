@@ -20,8 +20,8 @@ static int piece_falling_loop(game_t *tetris)
         now = clock();
         if (((now - time_display) / CLOCKS_PER_SEC) >= REFRESH_TIME) {
             display(tetris);
-            // TODO : move piece (down)
-            // TODO : eval piece (if it touch another piece in the map)
+            my_colision(tetris);
+            tetris->ppiece.coord.y += tetris->ppiece.speed_y;
             time_display = clock();
         }
     }
