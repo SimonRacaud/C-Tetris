@@ -76,5 +76,6 @@ void clean_lines_map(game_t *game);
 int display(game_t *tetris);
 int display_menu(game_t *tetris);
 int display_board(game_t *tetris);
+void display_player_pieces(game_t *tetris, window_t *board);
 
 #endif

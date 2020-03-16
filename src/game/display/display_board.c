@@ -16,6 +16,7 @@ int display_board(game_t *tetris)
             mvwprintw(board->w, 2 + y, 1 + x, "%c", tetris->map[y][x]);
         mvwprintw(board->w, 1, 1, "%c", '\n');
     }
+    display_player_pieces(tetris, board);
     mvwprintw(board->w, 1, 1, "GAME BOARD");
     box(board->w, ACS_VLINE, ACS_HLINE);
     return EXIT_SUCCESS;

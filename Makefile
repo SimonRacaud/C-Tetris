@@ -29,9 +29,10 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)prepare/get_special_key.c				\
-		$(DSRC)game_tools/rotate.c							\
-		$(DSRC)game_tools/clean_game.c							\
+		$(DSRC)game_tools/rotate.c						\
+		$(DSRC)game_tools/clean_game.c					\
 		$(DSRC)display_debug.c							\
+		$(DSRC)game/display/display_player_pieces.c							\
 
 OBJ	=	$(SRC:.c=.o)
 
