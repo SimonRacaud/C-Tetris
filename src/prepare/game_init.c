@@ -43,9 +43,10 @@ int game_init(game_t *tetris, char **argv, int argc, char **env)
         return EXIT_FAILURE;
     if (game_map_create(tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    tetris->ppiece.piece = &tetris->pieces.pc[2];
-    tetris->ppiece.coord.x = 4;
-    tetris->ppiece.coord.y = 4;
+    tetris->ppiece.piece = tetris->pieces.pc[2]; // DEBUG
+    tetris->ppiece.coord.x = 4; // DEBUG
+    tetris->ppiece.coord.y = 4; // DEBUG
+    tetris->ppiece.is_fall = true; // DEBUG
     game_init_struct(tetris);
     return EXIT_SUCCESS;
 }

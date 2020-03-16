@@ -36,4 +36,7 @@ void map_eval(game_t *game)
             game->line++;
         }
     }
+    if (write_on_map(game) == EXIT_FAILURE) {
+        game->status = FAIL;
+    }
 }

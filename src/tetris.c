@@ -19,6 +19,7 @@ int tetris(int argc, char **argv, char **env)
         return EXIT_FAILURE;
     if (game_play(&tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    // TODO : display game over window
     game_destroy(&tetris);
     window_destroy(&tetris);
     return EXIT_SUCCESS;

@@ -7,15 +7,20 @@
 
 #include "tetris.h"
 
+void tetrimino_destroy(tetrimino_t *tet)
+{
+    free(tet->name);
+    if (!tet->mtx)
+        return;
+    for (int j = 0; j < tet->height; j++)
+        free(tet->mtx[j]);
+    free(tet->mtx);
+}
+
 void pieces_destroy(pieces_t *pieces)
 {
     for (int i = 0; i < pieces->size; i++) {
-        free(pieces->pc[i].name);
-        if (!pieces->pc[i].mtx)
-            continue;
-        for (int j = 0; j < pieces->pc[i].height; j++)
-            free(pieces->pc[i].mtx[j]);
-        free(pieces->pc[i].mtx);
+        tetrimino_destroy(&pieces->pc[i]);
     }
     free(pieces->pc);
 }

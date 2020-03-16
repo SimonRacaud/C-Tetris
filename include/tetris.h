@@ -49,6 +49,7 @@ int get_key_code(char *str, char *key);
 
 // Destroy
 void pieces_destroy(pieces_t *pieces);
+void tetrimino_destroy(tetrimino_t *tet);
 void game_destroy(game_t *tetris);
 
 // Prepare and Init

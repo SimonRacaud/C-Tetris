@@ -27,8 +27,10 @@ typedef struct pieces {
 } pieces_t;
 
 typedef struct player_piece {
-    tetrimino_t *piece;
+    tetrimino_t piece;
     coord_t coord;
+    int speed_y;
+    bool is_fall;
 } player_piece_t;
 
 #endif
