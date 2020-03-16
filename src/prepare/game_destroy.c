@@ -12,7 +12,6 @@ extern const int NB_KEY;
 void game_destroy(game_t *tetris)
 {
     pieces_destroy(&tetris->pieces);
-    tetrimino_destroy(&tetris->ppiece.piece);
     for (int i = 0; i < tetris->conf.map_height; i++) {
         free(tetris->map[i]);
     }

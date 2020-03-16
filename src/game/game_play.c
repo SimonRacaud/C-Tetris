@@ -31,8 +31,8 @@ static int piece_falling_loop(game_t *tetris)
 int game_play(game_t *tetris)
 {
     while (tetris->status == RUNNING) {
-        // set_cuurent_piece : set next piece as current piece (player_piece_t)
-        // set_next_piece : Get new randow next piece
+        set_player_piece(tetris->next_piece, &tetris->ppiece, tetris);
+        set_next_piece(tetris);
         if (piece_falling_loop(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
         map_eval(tetris);

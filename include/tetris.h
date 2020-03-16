@@ -60,6 +60,7 @@ void config_init_spec_key(config_t *conf);
 int load_tetriminos(pieces_t *pieces);
 int load_piece(tetrimino_t *tetrminimo, char *filename);
 int sort_tetriminos(tetrimino_t *pc, int size);
+char **get_special_key(char **env);
 
 int apply_option_key_piece(config_t *conf, char index);
 int apply_option_key_menu(config_t *conf, char index);
@@ -70,11 +71,14 @@ int apply_option_map_size(config_t *conf, char index);
 void file_list_destroy(file_list_t *list);
 int file_list_add(file_list_t **list, const char *filename);
 
-//debug function
+// Debug Mode function
 int show_debug_screen(game_t *tetris);
 
+// PIECE MANAGEMENT
 int rotate(tetrimino_t *piece);
-char **get_special_key(char **env);
+int set_player_piece(tetrimino_t *next_piece, player_piece_t *ppiece,
+game_t *game);
+int set_next_piece(game_t *game);
 
 // Display
 int display(game_t *tetris);

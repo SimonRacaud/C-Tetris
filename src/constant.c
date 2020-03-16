@@ -41,6 +41,7 @@ const struct option LONG_OPTIONS[] = {
 
 const int MAP_ROW_WIDTH = 1;
 const int MAP_ROW_HEIGHT = 1;
+const int INIT_PIECE_SPEEDY = 1;
 
 // DISPLAYED CHAR
 

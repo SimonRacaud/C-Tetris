@@ -29,12 +29,14 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/config/config_apply_options.c	\
 		$(DSRC)prepare/load_tetriminos.c				\
 		$(DSRC)prepare/load_piece.c						\
-		$(DSRC)prepare/pieces_destroy.c				\
+		$(DSRC)prepare/pieces_destroy.c					\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)prepare/get_special_key.c				\
 		$(DSRC)piece/rotate.c							\
 		$(DSRC)piece/write_on_map.c						\
+		$(DSRC)piece/set_player_piece.c					\
+		$(DSRC)piece/set_next_piece.c					\
 		$(DSRC)display_debug.c							\
 		$(DSRC)game/display/display_player_pieces.c		\
 
