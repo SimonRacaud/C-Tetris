@@ -20,6 +20,10 @@ int set_next_piece(game_t *game)
         my_putstr_error("Error: get random next piece : invalid idx\n");
         idx = 0;
     }
-    game->next_piece = &game->pieces.pc[idx];
+    if (game->pieces.pc[idx].mtx == NULL) {
+        set_next_piece(game);
+    } else {
+        game->next_piece = &game->pieces.pc[idx];
+    }
     return EXIT_SUCCESS;
 }
