@@ -11,7 +11,7 @@
 extern char PIECE_CHAR;
 extern char BACKG_CHAR;
 
-static bool is_colision(game_t *tetris, int x, int y)
+static bool is_collision(game_t *tetris, int x, int y)
 {
     if (tetris->ppiece.coord.y + y >= tetris->conf.map_height)
         return true;
@@ -22,13 +22,15 @@ static bool is_colision(game_t *tetris, int x, int y)
     return false;
 }
 
-bool colision(game_t *tetris)
+bool collision(game_t *tetris)
 {
     bool exit = false;
 
-    for (int y = 0; y < tetris->ppiece.piece->height && !exit; y++)
-        for (int x = 0; x < tetris->ppiece.piece->width && !exit; x++)
-            exit = is_colision(tetris, x, y);
+    for (int y = 0; y < tetris->ppiece.piece->height && !exit; y++) {
+        for (int x = 0; x < tetris->ppiece.piece->width && !exit; x++) {
+            exit = is_collision(tetris, x, y);
+        }
+    }
     return exit;
 }
 static void print_in_map(game_t *tetris)
@@ -43,9 +45,9 @@ static void print_in_map(game_t *tetris)
             tetris->ppiece.piece->color : tetris->map[p_y + y - 1] [p_x + x - 1];
 }
 
-void my_colision(game_t *tetris)
+void my_collision(game_t *tetris)
 {
-    if (colision(tetris)) {
+    if (collision(tetris)) {
         print_in_map(tetris);
         tetris->ppiece.coord.y = 0;
     }

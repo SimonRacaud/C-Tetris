@@ -37,8 +37,10 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/write_on_map.c						\
 		$(DSRC)piece/set_player_piece.c					\
 		$(DSRC)piece/set_next_piece.c					\
+		$(DSRC)piece/piece_have_collision.c				\
+		$(DSRC)piece/piece_is_in_map_range.c			\
+		$(DSRC)piece/piece_move.c						\
 		$(DSRC)display_debug.c							\
-		$(DSRC)colision.c							\
 		$(DSRC)game/display/display_player_pieces.c		\
 
 OBJ	=	$(SRC:.c=.o)

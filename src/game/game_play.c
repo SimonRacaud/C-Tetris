@@ -19,9 +19,8 @@ static int piece_falling_loop(game_t *tetris)
             return EXIT_ERROR;
         now = clock();
         if (((now - time_display) / CLOCKS_PER_SEC) >= REFRESH_TIME) {
+            piece_move(tetris, PIECE_SENS_H);
             display(tetris);
-            my_colision(tetris);
-            tetris->ppiece.coord.y += tetris->ppiece.speed_y;
             time_display = clock();
         }
     }
