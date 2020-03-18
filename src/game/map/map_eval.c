@@ -37,6 +37,6 @@ void map_eval(game_t *game)
         }
     }
     if (write_on_map(game) == EXIT_FAILURE) {
-        game->status = FAIL;
+        game->status = END;
     }
 }

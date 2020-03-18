@@ -15,8 +15,7 @@
 
 enum game_status {
     RUNNING,
-    WIN,
-    FAIL
+    END,
 };
 
 typedef struct game {

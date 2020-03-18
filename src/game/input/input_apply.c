@@ -10,7 +10,7 @@
 int input_apply(char *input, int size, game_t *tetris)
 {
     if (my_strcmp(input, "\e") == 0) {
-        tetris->status = FAIL;
+        tetris->status = END;
     }
     return EXIT_SUCCESS;
 }
