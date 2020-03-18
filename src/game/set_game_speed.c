@@ -11,5 +11,5 @@ extern const int REFRESH_TIME;
 
 void set_game_speed(game_t *tetris)
 {
-    tetris->refresh_time = (REFRESH_TIME - (double)(tetris->level / 10));
+    tetris->refresh_time = (REFRESH_TIME - (double)(tetris->level / 10)) + 0.1;
 }

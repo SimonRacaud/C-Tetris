@@ -50,5 +50,6 @@ int game_init(game_t *tetris, char **argv, int argc, char **env)
         return EXIT_FAILURE;
     game_init_struct(tetris);
     set_next_piece(tetris);
+    set_game_speed(tetris);
     return EXIT_SUCCESS;
 }
