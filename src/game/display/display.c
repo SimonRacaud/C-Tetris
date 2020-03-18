@@ -13,6 +13,7 @@ int display(game_t *tetris)
 {
     erase();
     printw("%s", TITLE2);
+    color_init();
     display_menu(tetris);
     display_board(tetris);
     refresh();
