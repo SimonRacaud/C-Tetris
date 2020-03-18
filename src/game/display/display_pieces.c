@@ -18,9 +18,9 @@ void display_pieces(game_t *tetris)
                 mvwaddch(tetris->board.w, (y + 1), (x + 1), BACKG_CHAR);
                 continue;
             }
-            attron(COLOR_PAIR(tetris->map[y][x]));
+            wattron(tetris->board.w, COLOR_PAIR(tetris->map[y][x]));
             mvwaddch(tetris->board.w, (y + 1), (x + 1), PIECE_CHAR);
-            attroff(COLOR_PAIR(tetris->map[y][x]));
+            wattroff(tetris->board.w, COLOR_PAIR(tetris->map[y][x]));
         }
     }
 }
