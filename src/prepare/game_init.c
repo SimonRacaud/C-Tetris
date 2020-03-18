@@ -8,6 +8,7 @@
 #include "tetris.h"
 
 extern const char BACKG_CHAR;
+extern int REFRESH_TIME;
 
 static void game_init_struct(game_t *tetris)
 {
@@ -18,6 +19,7 @@ static void game_init_struct(game_t *tetris)
     tetris->level = tetris->conf.start_level;
     tetris->time_sub = 0;
     tetris->exit_status = EXIT_SUCCESS;
+    tetris->refresh_time = REFRESH_TIME;
 }
 
 static int game_map_create(game_t *tetris)

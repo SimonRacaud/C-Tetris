@@ -9,9 +9,7 @@
 
 void display_end_menu(game_t *tetris)
 {
-    if (tetris->score > tetris->high_score) {
-        tetris->high_score = tetris->score;
-    }
+    update_high_score(tetris);
     timeout(-1);
     erase();
     printw("%s\n\n", "GAME OVER !");

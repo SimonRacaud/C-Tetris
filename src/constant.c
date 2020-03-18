@@ -18,6 +18,8 @@ const int TITLE_WIDTH = 56;
 const int PANEL_HEIGHT = 15;
 const int PANEL_WIDTH = 20;
 
+//TIME BETWEEN TWO REFRESH IN SECONDS
+const int REFRESH_TIME = 1;
 
 // PROGRAM options
 
@@ -108,6 +110,3 @@ const char *SPECIAL_KEYS[][2] =
     {"kcuu1", "key up"},
     {"kcud1", "key down"}
 };
-
-//TIME BETWEEN TWO REFRESH IN SECONDS
-const int REFRESH_TIME = 1;
