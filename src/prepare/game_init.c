@@ -7,6 +7,8 @@
 
 #include "tetris.h"
 
+extern const char BACKG_CHAR;
+
 static void game_init_struct(game_t *tetris)
 {
     tetris->score = 0;
@@ -28,7 +30,7 @@ static int game_map_create(game_t *tetris)
         if (!tetris->map[i])
             return EXIT_FAILURE;
         for (int x = 0; x < tetris->conf.map_width; x++)
-            tetris->map[i][x] = ' ';
+            tetris->map[i][x] = BACKG_CHAR;
     }
     return EXIT_SUCCESS;
 }
