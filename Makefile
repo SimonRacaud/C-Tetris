@@ -19,6 +19,9 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)game/display/display.c					\
 		$(DSRC)game/display/display_menu.c				\
 		$(DSRC)game/display/display_board.c				\
+		$(DSRC)game/display/display_player_piece.c		\
+		$(DSRC)game/display/display_pieces.c			\
+		$(DSRC)game/display/color_init.c				\
 		$(DSRC)game/input/catch_input.c					\
 		$(DSRC)game/input/get_input.c					\
 		$(DSRC)game/input/input_apply.c					\
@@ -41,7 +44,6 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/piece_is_in_map_range.c			\
 		$(DSRC)piece/piece_move.c						\
 		$(DSRC)display_debug.c							\
-		$(DSRC)game/display/display_player_pieces.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
