@@ -105,6 +105,7 @@ void display_pieces(game_t *tetris);
 void display_player_piece(game_t *tetris, window_t *board);
 void my_colision(game_t *tetris);
 void color_init(void);
+void my_pause(void);
 
 // INPUT
 int catch_input(game_t *tetris);
