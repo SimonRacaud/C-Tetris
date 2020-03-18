@@ -7,8 +7,6 @@
 
 #include "tetris.h"
 
-extern int REFRESH_TIME;
-
 static int piece_falling_loop(game_t *tetris)
 {
     clock_t time_display = clock();
@@ -18,7 +16,7 @@ static int piece_falling_loop(game_t *tetris)
         if (catch_input(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
         now = clock();
-        if (((now - time_display) / CLOCKS_PER_SEC) >= REFRESH_TIME) {
+        if (((now - time_display) / CLOCKS_PER_SEC) >= tetris->refresh_time) {
             display(tetris);
             piece_move(tetris, PIECE_SENS_H);
             time_display = clock();

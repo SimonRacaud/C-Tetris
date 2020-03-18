@@ -28,6 +28,7 @@ typedef struct game {
     player_piece_t ppiece;
     tetrimino_t *next_piece;
     char **map;
+    double refresh_time;
     int score;
     int high_score;
     int line;

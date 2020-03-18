@@ -33,7 +33,7 @@ void map_eval(game_t *game)
     for (int y = 0; y < game->conf.map_height; y++) {
         if (is_full_line(game->map[y], game->conf.map_width)) {
             remove_line(game, y);
-            game->line++;
+            increase_line(game);
         }
     }
     if (write_on_map(game) == EXIT_FAILURE) {

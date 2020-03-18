@@ -15,7 +15,11 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)misc/tools_file.c						\
 		$(DSRC)misc/linked_file_list.c					\
 		$(DSRC)window/window_create_destroy.c			\
+		$(DSRC)attribute_access/level.c					\
+		$(DSRC)attribute_access/score.c					\
+		$(DSRC)attribute_access/line.c					\
 		$(DSRC)game/game_play.c							\
+		$(DSRC)game/set_game_speed.c					\
 		$(DSRC)game/display/display.c					\
 		$(DSRC)game/display/display_menu.c				\
 		$(DSRC)game/display/display_board.c				\

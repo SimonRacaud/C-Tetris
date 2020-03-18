@@ -40,6 +40,11 @@ int tetris(int argc, char **argv, char **env);
 // GAME
 int game_play(game_t *tetris);
 void color_init(void);
+void set_game_speed(game_t *tetris);
+void increase_level(game_t *tetris);
+void update_high_score(game_t *tetris);
+void increase_score(game_t *tetris, int coef);
+void increase_line(game_t *tetris);
 
 // MAP
 void map_eval(game_t *game);
