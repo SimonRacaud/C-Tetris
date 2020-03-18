@@ -15,7 +15,7 @@ const char *TETRIMINO_CHAR = "* ";
 const int TITLE_HEIGHT = 5;
 const int TITLE_WIDTH = 56;
 
-const int PANEL_HEIGHT = 20;
+const int PANEL_HEIGHT = 15;
 const int PANEL_WIDTH = 20;
 
 
