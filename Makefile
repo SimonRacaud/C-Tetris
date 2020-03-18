@@ -19,6 +19,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)attribute_access/score.c					\
 		$(DSRC)attribute_access/line.c					\
 		$(DSRC)game/game_play.c							\
+		$(DSRC)game/drop.c							\
 		$(DSRC)game/set_game_speed.c					\
 		$(DSRC)game/display/display.c					\
 		$(DSRC)game/display/display_menu.c				\

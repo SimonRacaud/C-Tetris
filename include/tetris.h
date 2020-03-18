@@ -94,6 +94,7 @@ int set_next_piece(game_t *game);
 int piece_move(game_t *tetris, enum piece_move_sens sens);
 bool piece_have_collision(game_t *tetris);
 bool piece_is_in_map_range(game_t *tetris, player_piece_t *piece);
+void drop_piece(game_t *tetris);
 
 // Display
 int display(game_t *tetris);
