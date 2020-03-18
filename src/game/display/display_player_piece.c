@@ -9,7 +9,8 @@
 
 extern char PIECE_CHAR;
 
-static void display_player_piece_char(game_t *tetris, window_t *board, int x, int y)
+static void display_player_piece_char(game_t *tetris, window_t *board, int x,
+int y)
 {
     if (tetris->ppiece.piece->mtx[y][x] == PIECE_CHAR) {
         wattron(board->w, COLOR_PAIR(tetris->ppiece.piece->color));

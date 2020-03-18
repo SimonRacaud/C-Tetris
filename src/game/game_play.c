@@ -24,7 +24,6 @@ static int piece_falling_loop(game_t *tetris)
             time_display = clock();
         }
     }
-    write_on_map(tetris);
     return EXIT_SUCCESS;
 }
 

@@ -18,11 +18,11 @@ player_piece_t *piece)
     size_t piece_x = 0;
     size_t piece_y = 0;
 
-    for (size_t y = piece->coord.y; y < end_point_y; y++) {
-        for (size_t x = piece->coord.x; x < end_point_x; x++) {
+    for (size_t y = piece->coord.y; y <= end_point_y; y++) {
+        for (size_t x = piece->coord.x; x <= end_point_x; x++) {
             piece_x = x - piece->coord.x;
             piece_y = y - piece->coord.y;
-            if (tetris->map[y][x] != BACKG_CHAR &&
+            if (tetris->map[y][x - 1] != BACKG_CHAR &&
                     piece->piece->mtx[piece_y][piece_x] == PIECE_CHAR) {
                 return true;
             }

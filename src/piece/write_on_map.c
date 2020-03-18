@@ -23,7 +23,7 @@ static void write_piece(game_t *tetris, player_piece_t *ppiece)
             if (ppiece->piece->mtx[piece_y][piece_x] == '\0') {
                 break;
             } else if (ppiece->piece->mtx[piece_y][piece_x] == PIECE_CHAR) {
-                tetris->map[y - 1][x - 1] = ppiece->piece->color;
+                tetris->map[y][x - 1] = (char)ppiece->piece->color;
             }
         }
     }
@@ -33,6 +33,9 @@ int write_on_map(game_t *tetris)
 {
     player_piece_t *piece = &tetris->ppiece;
 
+    if (piece_have_collision(tetris)) {
+        return EXIT_FAILURE;
+    }
     if (!piece_is_in_map_range(tetris, piece)) {
         return EXIT_FAILURE;
     } else {

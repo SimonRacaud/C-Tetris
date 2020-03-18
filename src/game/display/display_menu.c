@@ -29,8 +29,9 @@ int display_menu(game_t *tetris)
     mvwprintw(menu->w, 9, 2, "Lines: %d", tetris->line);
     display_time(tetris, menu);
     mvwprintw(menu->w, 13, 2, "Next piece:");
-    for (int i = 0; i < tetris->pieces.pc[2].height; i++)
+    for (int i = 0; i < tetris->pieces.pc[2].height; i++) {
         mvwprintw(menu->w, 15 + i, menu->width / 4, "%s",
             tetris->pieces.pc[2].mtx[i]);
+    }
     return EXIT_SUCCESS;
 }
