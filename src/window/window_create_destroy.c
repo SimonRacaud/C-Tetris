@@ -22,7 +22,7 @@ int window_create(game_t *tetris)
     timeout(0);
     curs_set(0);
     tetris->board.width = tetris->conf.map_width + 2;
-    tetris->board.height = tetris->conf.map_height + 3;
+    tetris->board.height = tetris->conf.map_height + 2;
     tetris->board.pos = (coord_t){TITLE_HEIGHT, 0};
     tetris->menu.width = PANEL_WIDTH;
     if (tetris->board.height > PANEL_HEIGHT)

@@ -8,12 +8,13 @@
 #include "tetris.h"
 
 extern const char PIECE_CHAR;
+extern const char BACKG_CHAR;
 
 static bool have_collision_with_other_piece(game_t *tetris,
 player_piece_t *piece)
 {
-    size_t end_point_y = piece->coord.y + piece->piece->height;
-    size_t end_point_x = piece->coord.x + piece->piece->width;
+    size_t end_point_y = piece->coord.y + piece->piece->height - 1;
+    size_t end_point_x = piece->coord.x + piece->piece->width - 1;
     size_t piece_x = 0;
     size_t piece_y = 0;
 
@@ -21,7 +22,7 @@ player_piece_t *piece)
         for (size_t x = piece->coord.x; x < end_point_x; x++) {
             piece_x = x - piece->coord.x;
             piece_y = y - piece->coord.y;
-            if (tetris->map[y][x] == PIECE_CHAR &&
+            if (tetris->map[y][x] != BACKG_CHAR &&
                     piece->piece->mtx[piece_y][piece_x] == PIECE_CHAR) {
                 return true;
             }

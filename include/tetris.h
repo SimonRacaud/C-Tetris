@@ -39,6 +39,7 @@ int tetris(int argc, char **argv, char **env);
 
 // GAME
 int game_play(game_t *tetris);
+void color_init(void);
 
 // MAP
 void map_eval(game_t *game);
@@ -93,7 +94,8 @@ bool piece_is_in_map_range(game_t *tetris, player_piece_t *piece);
 int display(game_t *tetris);
 int display_menu(game_t *tetris);
 int display_board(game_t *tetris);
-void display_player_pieces(game_t *tetris, window_t *board);
+void display_pieces(game_t *tetris);
+void display_player_piece(game_t *tetris, window_t *board);
 void my_colision(game_t *tetris);
 void color_init(void);
 

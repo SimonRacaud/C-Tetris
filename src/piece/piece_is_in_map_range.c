@@ -11,16 +11,11 @@ bool piece_is_in_map_range(game_t *tetris, player_piece_t *piece)
 {
     coord_t map = {tetris->conf.map_width, tetris->conf.map_height};
 
-    if (piece->coord.x < 0 || piece->coord.x >= map.x) {
+    if (piece->coord.x < 0 ||
+            (piece->coord.x + piece->piece->width) > map.x) {
         return false;
-    } else if (piece->coord.y < 0 || piece->coord.y >= map.y) {
-        return false;
-    }
-    if ((piece->coord.x + piece->piece->width) < 0 ||
-        (piece->coord.x + piece->piece->width) >= map.x) {
-        return false;
-    } else if ((piece->coord.y + piece->piece->height) < 0 ||
-        (piece->coord.y + piece->piece->height) >= map.y) {
+    } else if (piece->coord.y < 0 ||
+            (piece->coord.y + piece->piece->height) > map.y) {
         return false;
     }
     return true;

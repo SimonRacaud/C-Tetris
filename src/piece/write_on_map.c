@@ -11,13 +11,19 @@ extern const char PIECE_CHAR;
 
 static void write_piece(game_t *tetris, player_piece_t *ppiece)
 {
-    size_t end_point_y = ppiece->coord.y + ppiece->piece->height;
-    size_t end_point_x = ppiece->coord.x + ppiece->piece->width;
+    size_t end_point_y = ppiece->coord.y + ppiece->piece->height - 1;
+    size_t end_point_x = ppiece->coord.x + ppiece->piece->width - 1;
+    size_t piece_x = 0;
+    size_t piece_y = 0;
 
-    for (size_t y = ppiece->coord.y; y < end_point_y; y++) {
-        for (size_t x = ppiece->coord.x; x < end_point_x; x++) {
-            if (tetris->map[y][x] == PIECE_CHAR) {
-                tetris->map[y][x] = ppiece->piece->color;
+    for (size_t y = ppiece->coord.y; y <= end_point_y; y++) {
+        for (size_t x = ppiece->coord.x; x <= end_point_x; x++) {
+            piece_x = x - ppiece->coord.x;
+            piece_y = y - ppiece->coord.y;
+            if (ppiece->piece->mtx[piece_y][piece_x] == '\0') {
+                break;
+            } else if (ppiece->piece->mtx[piece_y][piece_x] == PIECE_CHAR) {
+                tetris->map[y - 1][x - 1] = ppiece->piece->color;
             }
         }
     }
