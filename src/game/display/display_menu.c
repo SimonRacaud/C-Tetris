@@ -16,6 +16,20 @@ static void display_time(game_t *tetris, window_t *menu)
     mvwprintw(menu->w, 11, 2, "Time: %.2d:%.2d", minutes, seconds);
 }
 
+static void display_next_piece(game_t *tetris, window_t *menu)
+{
+    int pos_x = (menu->width / 2) - (tetris->next_piece->width / 2);
+
+    mvwprintw(menu->w, 13, 2, "Next piece:");
+    color_init();
+    for (int i = 0; i < tetris->next_piece->height; i++) {
+        wattron(menu->w, COLOR_PAIR(tetris->next_piece->color));
+        mvwprintw(menu->w, 15 + i, pos_x, "%s",
+            tetris->next_piece->mtx[i]);
+        wattroff(menu->w, COLOR_PAIR(tetris->next_piece->color));
+    }
+}
+
 int display_menu(game_t *tetris)
 {
     window_t *menu = &tetris->menu;
@@ -28,13 +42,7 @@ int display_menu(game_t *tetris)
     mvwprintw(menu->w, 7, 2, "Level: %d", tetris->level);
     mvwprintw(menu->w, 9, 2, "Lines: %d", tetris->line);
     display_time(tetris, menu);
-    mvwprintw(menu->w, 13, 2, "Next piece:");
-    color_init();
-    for (int i = 0; i < tetris->next_piece->height; i++) {
-        wattron(menu->w, COLOR_PAIR(tetris->next_piece->color));
-        mvwprintw(menu->w, 15 + i, menu->width / 4, "%s",
-            tetris->next_piece->mtx[i]);
-        wattroff(menu->w, COLOR_PAIR(tetris->next_piece->color));
-    }
+    if (tetris->conf.hide_next_tetrimino == false)
+        display_next_piece(tetris, menu);
     return EXIT_SUCCESS;
 }

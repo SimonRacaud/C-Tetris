@@ -93,6 +93,7 @@ bool piece_is_in_map_range(game_t *tetris, player_piece_t *piece);
 // Display
 int display(game_t *tetris);
 int display_menu(game_t *tetris);
+void display_end_menu(game_t *tetris);
 int display_board(game_t *tetris);
 void display_pieces(game_t *tetris);
 void display_player_piece(game_t *tetris, window_t *board);

@@ -36,5 +36,6 @@ int game_play(game_t *tetris)
             return EXIT_ERROR;
         map_eval(tetris);
     }
+    display_end_menu(tetris);
     return tetris->exit_status;
 }
