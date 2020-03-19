@@ -13,7 +13,7 @@ int main(int argc, char **argv, char **env)
 
     show_help = show_help || have_str_in_array(argv, argc, "--help");
     if (show_help) {
-        return usage(EXIT_SUCCESS);
+        return usage(EXIT_SUCCESS, argv[0]);
     } else {
         return tetris(argc, argv, env);
     }
