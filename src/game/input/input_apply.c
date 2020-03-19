@@ -9,15 +9,15 @@
 
 static int move_left(game_t *tetris)
 {
-    if (tetris->ppiece.coord.x > 0)
+    if (tetris->ppiece.coord.x - 1 > 0)
         tetris->ppiece.coord.x -= 1;
     return EXIT_SUCCESS;
 }
 
-static int move_right(game_t *tetris)
+static int move_right(game_t *game)
 {
-    if (tetris->ppiece.coord.x < tetris->conf.map_width)
-        tetris->ppiece.coord.x += 1;
+    if (game->ppiece.coord.x + game->ppiece.piece->width < game->conf.map_width)
+        game->ppiece.coord.x += 1;
     return EXIT_SUCCESS;
 }
 
