@@ -20,6 +20,7 @@ const int PANEL_WIDTH = 20;
 
 //TIME BETWEEN TWO REFRESH IN SECONDS
 const int REFRESH_TIME = 1;
+const float MOVE_TIME = 0.3;
 
 // PROGRAM options
 
