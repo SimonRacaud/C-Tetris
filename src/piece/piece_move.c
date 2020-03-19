@@ -7,19 +7,20 @@
 
 #include "tetris.h"
 
-static void piece_move_vertical(game_t *tetris)
+static bool piece_move_vertical(game_t *tetris)
 {
     for (ssize_t i = 0; i < tetris->ppiece.speed_y; i++) {
         tetris->ppiece.coord.y++;
         if (piece_have_collision(tetris)) {
             tetris->ppiece.coord.y--;
             tetris->ppiece.is_fall = false;
-            break;
+            return false;
         }
     }
+    return true;
 }
 
-static void piece_move_horizontal(game_t *tetris, enum piece_move_sens sens)
+static bool piece_move_horizontal(game_t *tetris, enum piece_move_sens sens)
 {
     int shift = 0;
 
@@ -28,20 +29,21 @@ static void piece_move_horizontal(game_t *tetris, enum piece_move_sens sens)
     } else if (sens == PIECE_SENS_V_RIGHT) {
         shift = 1;
     } else {
-        return;
+        return false;
     }
     tetris->ppiece.coord.x += shift;
     if (piece_have_collision(tetris)) {
         tetris->ppiece.coord.y -= shift;
+        return false;
     }
+    return true;
 }
 
-int piece_move(game_t *tetris, enum piece_move_sens sens)
+bool piece_move(game_t *tetris, enum piece_move_sens sens)
 {
     if (sens == PIECE_SENS_H) {
-        piece_move_vertical(tetris);
+        return piece_move_vertical(tetris);
     } else {
-        piece_move_horizontal(tetris, sens);
+        return piece_move_horizontal(tetris, sens);
     }
-    return EXIT_SUCCESS;
 }

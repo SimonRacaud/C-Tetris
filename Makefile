@@ -19,7 +19,6 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)attribute_access/score.c					\
 		$(DSRC)attribute_access/line.c					\
 		$(DSRC)game/game_play.c							\
-		$(DSRC)game/drop.c							\
 		$(DSRC)game/set_game_speed.c					\
 		$(DSRC)game/display/display.c					\
 		$(DSRC)game/display/display_menu.c				\
@@ -50,6 +49,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/piece_have_collision.c				\
 		$(DSRC)piece/piece_is_in_map_range.c			\
 		$(DSRC)piece/piece_move.c						\
+		$(DSRC)piece/drop.c							\
 		$(DSRC)debug_mode/display_debug.c				\
 		$(DSRC)debug_mode/canonical_mode.c				\
 
