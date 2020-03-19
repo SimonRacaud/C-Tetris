@@ -30,13 +30,13 @@ static bool is_full_line(char *line, int size)
 
 void map_eval(game_t *game)
 {
+    if (write_on_map(game) == EXIT_FAILURE) {
+        game->status = END;
+    }
     for (int y = 0; y < game->conf.map_height; y++) {
         if (is_full_line(game->map[y], game->conf.map_width)) {
             remove_line(game, y);
             increase_line(game);
         }
-    }
-    if (write_on_map(game) == EXIT_FAILURE) {
-        game->status = END;
     }
 }
