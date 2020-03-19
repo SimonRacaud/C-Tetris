@@ -12,15 +12,15 @@ int tetris(int argc, char **argv, char **env)
     game_t tetris;
 
     if (game_init(&tetris, argv, argc, env) == EXIT_FAILURE)
-        return EXIT_FAILURE;
+        return EXIT_ERROR;
     if (tetris.conf.debug_mode) {
         if (show_debug_screen(&tetris) == EXIT_ERROR)
             return EXIT_ERROR;
     }
     if (window_create(&tetris) == EXIT_FAILURE)
-        return EXIT_FAILURE;
+        return EXIT_ERROR;
     if (game_play(&tetris) == EXIT_FAILURE)
-        return EXIT_FAILURE;
+        return EXIT_ERROR;
     game_destroy(&tetris);
     window_destroy(&tetris);
     return EXIT_SUCCESS;

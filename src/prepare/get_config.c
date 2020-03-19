@@ -80,6 +80,9 @@ int get_config(config_t *conf, char **argv, int argc, char **env)
 
     config_init_default(conf);
     while ((ret = getopt_long(argc, argv, OPTIONS, LONG_OPTIONS, 0)) != -1) {
+        if (ret == '?') {
+            return usage(EXIT_FAILURE, argv[0]);
+        }
         if (apply_option((char)ret, conf) == EXIT_FAILURE) {
             my_putstr_error("Option error : invalid option\n");
             return EXIT_FAILURE;
@@ -93,5 +96,6 @@ int get_config(config_t *conf, char **argv, int argc, char **env)
         my_putstr_error("Option error : value error\n");
         return EXIT_FAILURE;
     }
-    return EXIT_SUCCESS;
+    //return EXIT_SUCCESS;
+    return EXIT_FAILURE;
 }
