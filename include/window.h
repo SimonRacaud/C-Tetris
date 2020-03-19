@@ -8,7 +8,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-void window_destroy(game_t *game);
-int window_create(game_t *tetris);
+void window_destroy(game_t *game, bool is_reload);
+int window_create(game_t *tetris, bool is_reload);
 
 #endif

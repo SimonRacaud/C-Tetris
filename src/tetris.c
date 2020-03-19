@@ -17,11 +17,11 @@ int tetris(int argc, char **argv, char **env)
         if (show_debug_screen(&tetris) == EXIT_ERROR)
             return EXIT_ERROR;
     }
-    if (window_create(&tetris) == EXIT_FAILURE)
+    if (window_create(&tetris, false) == EXIT_FAILURE)
         return EXIT_ERROR;
     if (game_play(&tetris) == EXIT_FAILURE)
         return EXIT_ERROR;
     game_destroy(&tetris);
-    window_destroy(&tetris);
+    window_destroy(&tetris, false);
     return EXIT_SUCCESS;
 }

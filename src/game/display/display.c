@@ -15,13 +15,11 @@ int display(game_t *tetris)
         usleep(1000);
     }
     erase();
-    printw("%s", TITLE2);
+    mvprintw(0, 0, "%s", TITLE2);
     color_init();
     display_menu(tetris);
     display_board(tetris);
     use_default_colors();
     refresh();
-    wrefresh(tetris->menu.w);
-    wrefresh(tetris->board.w);
     return EXIT_SUCCESS;
 }

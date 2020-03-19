@@ -52,26 +52,30 @@ static void window_compute_size(game_t *tetris)
     }
 }
 
-int window_create(game_t *tetris)
+int window_create(game_t *tetris, bool is_reload)
 {
     window_t *board = &tetris->board;
     window_t *menu = &tetris->menu;
 
-    initscr();
-    timeout(0);
-    curs_set(0);
+    if (!is_reload) {
+        initscr();
+        timeout(0);
+        curs_set(0);
+    }
     window_compute_size(tetris);
     tetris->menu.pos = (coord_t){0, 0};
     board->w = subwin(stdscr, board->height, board->width, TITLE_HEIGHT, 0);
     menu->w = subwin(stdscr, menu->height, menu->width, TITLE_HEIGHT,
     board->width);
-    refresh();
+    clear();
     return EXIT_SUCCESS;
 }
 
-void window_destroy(game_t *game)
+void window_destroy(game_t *game, bool is_reload)
 {
     delwin(game->menu.w);
     delwin(game->board.w);
-    endwin();
+    if (!is_reload) {
+        endwin();
+    }
 }

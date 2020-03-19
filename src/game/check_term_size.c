@@ -28,11 +28,18 @@ static bool is_term_too_small(game_t *tetris)
 
 bool check_term_size(game_t *tetris)
 {
+    static bool last_call_return = false;
+
     if (is_term_too_small(tetris)) {
         clear();
         mvprintw(LINES / 2, COLS / 2 - 10, "TOO SMALL TERMINAL");
         refresh();
+        last_call_return = true;
         return true;
+    } else if (last_call_return) {
+        window_destroy(tetris, true);
+        window_create(tetris, true);
     }
+    last_call_return = false;
     return false;
 }
