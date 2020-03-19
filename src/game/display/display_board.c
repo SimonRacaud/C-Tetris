@@ -11,6 +11,7 @@ int display_board(game_t *tetris)
 {
     window_t *board = &tetris->board;
 
+    wresize(board->w, board->height, board->width);
     display_pieces(tetris);
     display_player_piece(tetris, board);
     box(board->w, ACS_VLINE, ACS_HLINE);

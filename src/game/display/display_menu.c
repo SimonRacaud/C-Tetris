@@ -44,6 +44,7 @@ int display_menu(game_t *tetris)
     window_t *menu = &tetris->menu;
     int title_posx = (menu->width / 2) - 5;
 
+    wresize(menu->w, menu->height, menu->width);
     box(menu->w, ACS_VLINE, ACS_HLINE);
     mvwprintw(menu->w, 1, title_posx, "-- MENU --");
     mvwprintw(menu->w, 3, 2, "Score: %d", tetris->score);

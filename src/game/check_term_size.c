@@ -7,6 +7,8 @@
 
 #include "tetris.h"
 
+extern const int TITLE_HEIGHT;
+
 static bool is_term_too_small(game_t *tetris)
 {
     int game_width;
@@ -16,7 +18,7 @@ static bool is_term_too_small(game_t *tetris)
     game_height = tetris->board.height;
     if (tetris->menu.height > game_height)
         game_height = tetris->menu.height;
-    game_height += 2;
+    game_height += (2 + TITLE_HEIGHT);
     game_width += 2;
     if (COLS < game_width || LINES < game_height) {
         return true;
