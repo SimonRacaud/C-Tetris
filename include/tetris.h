@@ -109,6 +109,7 @@ void display_player_piece(game_t *tetris, window_t *board);
 void my_colision(game_t *tetris);
 void color_init(void);
 void my_pause(void);
+tetrimino_t *dup_tetrimino(tetrimino_t *src);
 
 // INPUT
 int catch_input(game_t *tetris);

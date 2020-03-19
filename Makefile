@@ -29,6 +29,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)game/display/color_init.c				\
 		$(DSRC)game/display/display_end_menu.c			\
 		$(DSRC)game/display/pause.c			\
+		$(DSRC)game/dup_tetrimino_t.c					\
 		$(DSRC)game/input/catch_input.c					\
 		$(DSRC)game/input/get_input.c					\
 		$(DSRC)game/input/input_apply.c					\

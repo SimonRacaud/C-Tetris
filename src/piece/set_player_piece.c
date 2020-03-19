@@ -12,6 +12,10 @@ extern const int INIT_PIECE_SPEEDY;
 int set_player_piece(tetrimino_t *next_piece, player_piece_t *ppiece,
 game_t *game)
 {
+    if (ppiece->piece) {
+        tetrimino_destroy(ppiece->piece);
+        free(ppiece->piece);
+    }
     ppiece->coord.x = (int)(game->conf.map_width / 2);
     ppiece->coord.y = 0;
     ppiece->speed_y = INIT_PIECE_SPEEDY;

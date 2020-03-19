@@ -23,7 +23,9 @@ int set_next_piece(game_t *game)
     if (game->pieces.pc[idx].mtx == NULL) {
         set_next_piece(game);
     } else {
-        game->next_piece = &game->pieces.pc[idx];
+        game->next_piece = dup_tetrimino(&game->pieces.pc[idx]);
+        if (!game->next_piece)
+            return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }

@@ -12,6 +12,7 @@ extern float REFRESH_TIME;
 
 static void game_init_struct(game_t *tetris)
 {
+    tetris->ppiece.piece = NULL;
     tetris->score = 0;
     tetris->status = RUNNING;
     tetris->high_score = 0;
@@ -49,7 +50,8 @@ int game_init(game_t *tetris, char **argv, int argc, char **env)
     if (game_map_create(tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
     game_init_struct(tetris);
-    set_next_piece(tetris);
+    if (set_next_piece(tetris) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     set_game_speed(tetris);
     return EXIT_SUCCESS;
 }
