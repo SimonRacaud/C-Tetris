@@ -88,7 +88,7 @@ int show_debug_screen(game_t *tetris);
 void canonical_mode_select(bool enable);
 
 // PIECE MANAGEMENT
-int rotate(tetrimino_t *piece);
+int rotate(game_t *tetris);
 int set_player_piece(tetrimino_t *next_piece, player_piece_t *ppiece,
 game_t *game);
 int set_next_piece(game_t *game);

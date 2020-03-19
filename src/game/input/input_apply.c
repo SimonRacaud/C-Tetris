@@ -33,7 +33,7 @@ int input_apply(char *input, int size, game_t *tetris)
     if (my_strncmp(input, tetris->conf.key[RIGHT_KEY], size) == 0)
         move_right(tetris);
     if (my_strncmp(input, tetris->conf.key[TURN_KEY], size) == 0)
-        rotate(tetris->ppiece.piece);
+        rotate(tetris);
     if (my_strncmp(input, tetris->conf.key[DROP_KEY], size) == 0)
         drop_piece(tetris);
     if (my_strncmp(input, tetris->conf.key[QUIT_KEY], size) == 0)
