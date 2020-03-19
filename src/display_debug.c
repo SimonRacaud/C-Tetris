@@ -78,6 +78,5 @@ int show_debug_screen(game_t *tetris)
     printw("Press any key to start Tetris\n");
     refresh();
     getch();
-    endwin();
     return EXIT_SUCCESS;
 }

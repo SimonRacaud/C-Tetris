@@ -34,7 +34,7 @@ typedef struct file_list {
 
 // Base Functions
 
-int usage(int status);
+int usage(int status, const char *app_name);
 int tetris(int argc, char **argv, char **env);
 
 // GAME

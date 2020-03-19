@@ -8,7 +8,6 @@
 #include "tetris.h"
 
 static const char *USAGE =
-"Usage:\t./tetris [options]\n"
 "Options:\n"
 "\t--help\t\t\tDisplay this help\n"
 "\t-L --level={num}\tStart Tetris at level num (def: 1)\n"
@@ -27,8 +26,9 @@ static const char *USAGE =
 "\t-w --without-next\tHide next tetrimino (def: false)\n"
 "\t-D --debug\t\tDebug mode (def: false)\n";
 
-int usage(int status)
+int usage(int status, const char *app_name)
 {
+    my_printf("Usage:\t%s [options]\n", app_name);
     my_putstr(USAGE);
     return status;
 }
