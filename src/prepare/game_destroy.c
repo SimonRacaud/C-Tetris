@@ -11,6 +11,8 @@ extern const int NB_KEY;
 
 void game_destroy(game_t *tetris)
 {
+    tetrimino_destroy(tetris->next_piece);
+    free(tetris->next_piece);
     tetrimino_destroy(tetris->ppiece.piece);
     free(tetris->ppiece.piece);
     pieces_destroy(&tetris->pieces);

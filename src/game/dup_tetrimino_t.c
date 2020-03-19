@@ -31,11 +31,16 @@ tetrimino_t *dup_tetrimino(tetrimino_t *src)
     if (!my_tetr)
         return NULL;
     my_tetr->name = my_strdup(src->name);
-    if (!my_tetr->name)
+    if (!my_tetr->name) {
+        free(my_tetr);
         return NULL;
+    }
     my_tetr->mtx = dup_mtx(src);
-    if (!my_tetr->mtx)
+    if (!my_tetr->mtx) {
+        free(my_tetr->name);
+        free(my_tetr);
         return NULL;
+    }
     my_tetr->color = src->color;
     my_tetr->width = src->width;
     my_tetr->height = src->height;
