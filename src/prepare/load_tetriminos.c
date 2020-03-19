@@ -53,7 +53,7 @@ int load_tetriminos(pieces_t *pieces)
     file_list_t *files = NULL;
 
     if (load_pieces_filename(&files, &count_file) == EXIT_FAILURE)
-        return EXIT_SUCCESS;
+        return EXIT_FAILURE;
     if (count_file == 0)
         return EXIT_FAILURE;
     if (pieces_create(pieces, files, count_file) == EXIT_FAILURE)
