@@ -7,6 +7,8 @@
 
 #include "tetris.h"
 
+extern char BACKG_CHAR;
+
 static void display_time(game_t *tetris, window_t *menu)
 {
     int time = (clock() / CLOCKS_PER_SEC) - tetris->time_sub;
@@ -16,18 +18,26 @@ static void display_time(game_t *tetris, window_t *menu)
     mvwprintw(menu->w, 11, 2, "Time: %.2d:%.2d", minutes, seconds);
 }
 
-static void display_next_piece(game_t *tetris, window_t *menu)
+static void char_display(game_t *tetris, window_t *menu, int x, int y)
 {
     int pos_x = (menu->width / 2) - (tetris->next_piece->width / 2);
 
+    if (tetris->next_piece->mtx[y][x] != BACKG_CHAR)
+        mvwprintw(menu->w, 15 + y, pos_x + x, "%c",
+            tetris->next_piece->mtx[y][x]);
+}
+
+static void display_next_piece(game_t *tetris, window_t *menu)
+{
     mvwprintw(menu->w, 13, 2, "Next piece:");
     color_init();
+    wattron(menu->w, COLOR_PAIR(tetris->next_piece->color));
     for (int i = 0; i < tetris->next_piece->height; i++) {
-        wattron(menu->w, COLOR_PAIR(tetris->next_piece->color));
-        mvwprintw(menu->w, 15 + i, pos_x, "%s",
-            tetris->next_piece->mtx[i]);
-        wattroff(menu->w, COLOR_PAIR(tetris->next_piece->color));
+        for (int x = 0; x < tetris->next_piece->width; x++)
+            char_display(tetris, menu, x, i);
+            //mvwprintw(menu->w, 15 + i, pos_x, "%s", tetris->next_piece->mtx[i]);
     }
+    wattroff(menu->w, COLOR_PAIR(tetris->next_piece->color));
 }
 
 int display_menu(game_t *tetris)
