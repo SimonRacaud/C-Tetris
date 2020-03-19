@@ -36,6 +36,7 @@ int game_play(game_t *tetris)
         set_next_piece(tetris);
         if (piece_falling_loop(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
+        increase_score(tetris, 10);
         map_eval(tetris);
     }
     display_end_menu(tetris);
