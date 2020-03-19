@@ -35,7 +35,6 @@ static void display_next_piece(game_t *tetris, window_t *menu)
     for (int i = 0; i < tetris->next_piece->height; i++) {
         for (int x = 0; x < tetris->next_piece->width; x++)
             char_display(tetris, menu, x, i);
-            //mvwprintw(menu->w, 15 + i, pos_x, "%s", tetris->next_piece->mtx[i]);
     }
     wattroff(menu->w, COLOR_PAIR(tetris->next_piece->color));
 }

@@ -41,6 +41,7 @@ int tetris(int argc, char **argv, char **env);
 // GAME
 int game_play(game_t *tetris);
 void color_init(void);
+bool check_term_size(game_t *tetris);
 void set_game_speed(game_t *tetris);
 void increase_level(game_t *tetris);
 void update_high_score(game_t *tetris);

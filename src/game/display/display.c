@@ -11,6 +11,9 @@ extern const char *TITLE2;
 
 int display(game_t *tetris)
 {
+    while (check_term_size(tetris)) {
+        usleep(1000);
+    }
     erase();
     printw("%s", TITLE2);
     color_init();
