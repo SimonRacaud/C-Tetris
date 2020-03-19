@@ -7,18 +7,20 @@
 
 #include "tetris.h"
 
-static int move_left(game_t *tetris)
+static void move_left(game_t *tetris)
 {
     if (tetris->ppiece.coord.x - 1 > 0)
         tetris->ppiece.coord.x -= 1;
-    return EXIT_SUCCESS;
+    if (piece_have_collision(tetris))
+        tetris->ppiece.coord.x += 1;
 }
 
-static int move_right(game_t *game)
+static void move_right(game_t *game)
 {
     if (game->ppiece.coord.x + game->ppiece.piece->width < game->conf.map_width)
         game->ppiece.coord.x += 1;
-    return EXIT_SUCCESS;
+    if (piece_have_collision(game))
+        game->ppiece.coord.x -= 1;
 }
 
 int input_apply(char *input, int size, game_t *tetris)
