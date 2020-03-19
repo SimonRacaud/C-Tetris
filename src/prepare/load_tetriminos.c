@@ -54,6 +54,8 @@ int load_tetriminos(pieces_t *pieces)
 
     if (load_pieces_filename(&files, &count_file) == EXIT_FAILURE)
         return EXIT_SUCCESS;
+    if (count_file == 0)
+        return EXIT_FAILURE;
     if (pieces_create(pieces, files, count_file) == EXIT_FAILURE)
         return EXIT_FAILURE;
     file_list_destroy(files);
