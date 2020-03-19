@@ -9,16 +9,14 @@
 
 static void move_left(game_t *tetris)
 {
-    if (tetris->ppiece.coord.x - 1 > 0)
-        tetris->ppiece.coord.x -= 1;
+    tetris->ppiece.coord.x -= 1;
     if (piece_have_collision(tetris))
         tetris->ppiece.coord.x += 1;
 }
 
 static void move_right(game_t *game)
 {
-    if (game->ppiece.coord.x + game->ppiece.piece->width < game->conf.map_width)
-        game->ppiece.coord.x += 1;
+    game->ppiece.coord.x += 1;
     if (piece_have_collision(game))
         game->ppiece.coord.x -= 1;
 }
