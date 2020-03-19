@@ -12,11 +12,11 @@
 static int key_manage(char *str, char *key)
 {
     if (key && key[0] == '\e') {
-        printw("%s : ^E%s\n", str, key + 1);
+        my_printf("%s : ^E%s\n", str, key + 1);
     } else if (key && key[0] == ' ') {
-        printw("%s : (space)\n", str);
+        my_printf("%s : (space)\n", str);
     } else
-        printw("%s : %s\n", str, key);
+        my_printf("%s : %s\n", str, key);
     return EXIT_SUCCESS;
 }
 
@@ -42,18 +42,18 @@ static int key_display(config_t *config)
 
 static void display_tetriminos_content(tetrimino_t *piece)
 {
-    printw("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
+    my_printf("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
     piece->name, piece->width, piece->height, piece->color);
     for (int u = 0; u < piece->height; u++)
-        printw("%s\n", piece->mtx[u]);
+        my_printf("%s\n", piece->mtx[u]);
 }
 
 static void display_tetriminos(game_t *tetris)
 {
-    printw("Tetriminos : %i\n", tetris->pieces.size);
+    my_printf("Tetriminos : %i\n", tetris->pieces.size);
     for (int i = 0; i < tetris->pieces.size; i++) {
         if (!tetris->pieces.pc[i].mtx)
-            printw("Tetriminos : Name %s : Error\n", PIECE(i).name);
+            my_printf("Tetriminos : Name %s : Error\n", PIECE(i).name);
         else {
             display_tetriminos_content(&tetris->pieces.pc[i]);
         }
@@ -62,21 +62,22 @@ static void display_tetriminos(game_t *tetris)
 
 int show_debug_screen(game_t *tetris)
 {
+    char buffer[1];
     config_t *config = &tetris->conf;
 
-    initscr();
-    printw("*** DEBUG MODE ***\n");
+    my_putstr("*** DEBUG MODE ***\n");
     if (key_display(config) == EXIT_ERROR)
         return EXIT_ERROR;
     if (config->hide_next_tetrimino)
-        printw("Next : Yes\n");
+        my_putstr("Next : Yes\n");
     else
-        printw("Next : No\n");
-    printw("Level : %i\n", config->start_level);
-    printw("Size : %i*%i\n", config->map_width, config->map_height);
+        my_putstr("Next : No\n");
+    my_printf("Level : %i\n", config->start_level);
+    my_printf("Size : %i*%i\n", config->map_width, config->map_height);
     display_tetriminos(tetris);
-    printw("Press any key to start Tetris\n");
-    refresh();
-    getch();
+    my_putstr("Press any key to start Tetris\n");
+    canonical_mode_select(true);
+    read(0, buffer, 1);
+    canonical_mode_select(false);
     return EXIT_SUCCESS;
 }

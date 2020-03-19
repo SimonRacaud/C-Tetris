@@ -85,6 +85,7 @@ int file_list_add(file_list_t **list, const char *filename);
 
 // Debug Mode function
 int show_debug_screen(game_t *tetris);
+void canonical_mode_select(bool enable);
 
 // PIECE MANAGEMENT
 int rotate(game_t *tetris);

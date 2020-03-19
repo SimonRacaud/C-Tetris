@@ -50,7 +50,8 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/piece_have_collision.c				\
 		$(DSRC)piece/piece_is_in_map_range.c			\
 		$(DSRC)piece/piece_move.c						\
-		$(DSRC)display_debug.c							\
+		$(DSRC)debug_mode/display_debug.c				\
+		$(DSRC)debug_mode/canonical_mode.c				\
 
 OBJ	=	$(SRC:.c=.o)
 

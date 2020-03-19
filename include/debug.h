@@ -16,4 +16,6 @@ typedef struct key_t
 
 #define PIECE(x) tetris->pieces.pc[x]
 
+void canonical_mode_select(bool enable);
+
 #endif

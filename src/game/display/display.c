@@ -16,6 +16,7 @@ int display(game_t *tetris)
     color_init();
     display_menu(tetris);
     display_board(tetris);
+    use_default_colors();
     refresh();
     wrefresh(tetris->menu.w);
     wrefresh(tetris->board.w);
