@@ -34,20 +34,41 @@ static void matrix_rotate(char **new, tetrimino_t *piece)
         }
 }
 
-int rotate(tetrimino_t *piece)
+static void error_manage(game_t *tetris, char **old)
 {
-    int temp = 0;
+    int temp;
+
+    if (piece_have_collision(tetris)) {
+        for (int i = 0; i < tetris->ppiece.piece->height; i++)
+            free(tetris->ppiece.piece->mtx[i]);
+        free(tetris->ppiece.piece->mtx);
+        tetris->ppiece.piece->mtx = old;
+        temp = tetris->ppiece.piece->height;
+        tetris->ppiece.piece->height = tetris->ppiece.piece->width;
+        tetris->ppiece.piece->width = temp;
+    }
+    else {
+        for (int i = 0; i < tetris->ppiece.piece->width; i++)
+            free(old[i]);
+        free(old);
+    }
+}
+
+int rotate(game_t *tetris)
+{
+    int temp;
+    tetrimino_t *piece = tetris->ppiece.piece;
     char **new = get_new_matrix(piece->height, piece->width);
+    char **tmp;
 
     if (!new)
         return EXIT_ERROR;
     matrix_rotate(new, piece);
-    for (int i = 0; i < piece->height; i++)
-        free(piece->mtx[i]);
-    free(piece->mtx);
+    tmp = piece->mtx;
     piece->mtx = new;
     temp = piece->height;
     piece->height = piece->width;
     piece->width = temp;
+    error_manage(tetris, tmp);
     return EXIT_SUCCESS;
 }

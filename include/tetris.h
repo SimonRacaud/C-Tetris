@@ -87,7 +87,7 @@ int file_list_add(file_list_t **list, const char *filename);
 int show_debug_screen(game_t *tetris);
 
 // PIECE MANAGEMENT
-int rotate(tetrimino_t *piece);
+int rotate(game_t *tetris);
 int set_player_piece(tetrimino_t *next_piece, player_piece_t *ppiece,
 game_t *game);
 int set_next_piece(game_t *game);
