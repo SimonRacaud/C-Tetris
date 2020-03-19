@@ -14,6 +14,7 @@ int display(game_t *tetris)
     erase();
     printw("%s", TITLE2);
     color_init();
+    mvprintw(10, 50, "%f", tetris->refresh_time);
     display_menu(tetris);
     display_board(tetris);
     use_default_colors();

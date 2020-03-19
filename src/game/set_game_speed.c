@@ -7,9 +7,16 @@
 
 #include "tetris.h"
 
-extern const int REFRESH_TIME;
+extern const float REFRESH_TIME;
+extern const float FPS;
+extern const float MIN_REFRESH_TIME;
 
 void set_game_speed(game_t *tetris)
 {
-    tetris->refresh_time = (REFRESH_TIME - (double)(tetris->level / 10)) + 0.1;
+    double sub = ((double)tetris->level / 10) - 0.1;
+    double init_time = REFRESH_TIME;
+
+    tetris->refresh_time = (init_time - sub);
+    if (tetris->refresh_time <= MIN_REFRESH_TIME)
+        tetris->refresh_time = MIN_REFRESH_TIME;
 }

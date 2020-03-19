@@ -8,7 +8,7 @@
 #include "tetris.h"
 
 extern const char BACKG_CHAR;
-extern int REFRESH_TIME;
+extern float REFRESH_TIME;
 
 static void game_init_struct(game_t *tetris)
 {

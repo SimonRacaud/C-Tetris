@@ -19,8 +19,9 @@ const int PANEL_HEIGHT = 15;
 const int PANEL_WIDTH = 20;
 
 //TIME BETWEEN TWO REFRESH IN SECONDS
-const int REFRESH_TIME = 1;
-const float MOVE_TIME = 0.3;
+const float REFRESH_TIME = 1;
+const float MIN_REFRESH_TIME = 0.1;
+const float FPS = 0.1;
 
 // PROGRAM options
 
@@ -95,7 +96,7 @@ const char *TITLE2 =
 "  | | | _||   <  | | | v / |`._`.\n"
 "  |_| |___|_|\\_\\ |_| |_|_\\_||___/\n";
 
-const char *PAUSE = 
+const char *PAUSE =
 " ____    ____  __ __  _____   ___ \n"
 "|    \\  /    T|  T  T/ ___/  /  _]\n"
 "|  o  )Y  o  ||  |  (   \\_  /  [_ \n"

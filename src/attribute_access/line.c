@@ -10,7 +10,7 @@
 void increase_line(game_t *tetris)
 {
     tetris->line++;
-    if (tetris->line % 10 == 0 && tetris->line != 0) {
+    if ((tetris->line % 10) == 0 && tetris->line != 0) {
         increase_level(tetris);
     }
 }
