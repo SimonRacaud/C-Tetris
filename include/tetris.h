@@ -23,6 +23,7 @@
 
 enum piece_move_sens {
     PIECE_SENS_H,
+    PIECE_SENS_H_UP,
     PIECE_SENS_V_LEFT,
     PIECE_SENS_V_RIGHT
 };

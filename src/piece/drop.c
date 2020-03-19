@@ -15,7 +15,12 @@
 
 void drop_piece(game_t *tetris)
 {
-    while (piece_move(tetris, PIECE_SENS_H)) {
+    int count = 0;
 
+    while (piece_move(tetris, PIECE_SENS_H)) {
+        count++;
+    }
+    if (count >= 2) {
+        piece_move(tetris, PIECE_SENS_H_UP);
     }
 }
