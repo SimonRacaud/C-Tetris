@@ -28,7 +28,7 @@ static int read_content(char **content, int *len, int fd)
     int buffer_len = BUFFER_BLOCK;
     int ret;
 
-    while (1) {
+    while (true) {
         ret = read(fd, *content + (*len), BUFFER_BLOCK - 1);
         if (ret == -1)
             return EXIT_FAILURE;
@@ -40,12 +40,25 @@ static int read_content(char **content, int *len, int fd)
     }
 }
 
+char **build_word_array(char *content, int len)
+{
+    char **word_array = NULL;
+
+    if (len > 0) {
+        content[len - 1] = '\0';
+        word_array =  my_str_to_word_array(content, "\n");
+    } else {
+        word_array = NULL;
+    }
+    free(content);
+    return word_array;
+}
+
 char **read_file(const char *filepath)
 {
     int fd;
     int len = 0;
     char *content = NULL;
-    char **word_array = NULL;
 
     fd = open(filepath, O_RDONLY);
     if (fd == -1) {
@@ -58,8 +71,5 @@ char **read_file(const char *filepath)
         my_putstr_error("read_content : error\n");
         return NULL;
     }
-    content[len - 1] = '\0';
-    word_array =  my_str_to_word_array(content, "\n");
-    free(content);
-    return word_array;
+    return build_word_array(content, len);
 }

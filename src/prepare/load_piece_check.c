@@ -15,8 +15,7 @@ bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
 
     if (!right_ext) {
         tetrimino->mtx = NULL;
-        my_putstr_error(tetrimino->name);
-        my_putstr_error(" : wrong extension\n");
+        my_putstr_error("tetrimono file : wrong extension\n");
         tetrimino->name = "";
         return true;
     }
@@ -26,17 +25,20 @@ bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
 bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size)
 {
     if (tet->color < 0 || tet->color > 7) {
-        my_putstr_error(tet->name);
+        if (tet->name)
+            my_putstr_error(tet->name);
         my_putstr_error(" : wrong color\n");
         return false;
     }
     if (tet->width > map_size->x) {
-        my_putstr_error(tet->name);
+        if (tet->name)
+            my_putstr_error(tet->name);
         my_putstr_error(" : bigger than map width\n");
         return false;
     }
     if (tet->height > map_size->y) {
-        my_putstr_error(tet->name);
+        if (tet->name)
+            my_putstr_error(tet->name);
         my_putstr_error(" : bigger than map height\n");
         return false;
     }
