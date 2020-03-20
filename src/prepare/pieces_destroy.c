@@ -9,7 +9,8 @@
 
 void tetrimino_destroy(tetrimino_t *tet)
 {
-    free(tet->name);
+    if (tet->name[0] != '\0')
+        free(tet->name);
     if (!tet->mtx)
         return;
     for (int j = 0; j < tet->height; j++)
