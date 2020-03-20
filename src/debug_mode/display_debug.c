@@ -52,9 +52,9 @@ static void display_tetriminos(game_t *tetris)
 {
     my_printf("Tetriminos : %i\n", tetris->pieces.size);
     for (int i = 0; i < tetris->pieces.size; i++) {
-        if (!tetris->pieces.pc[i].mtx)
+        if (!tetris->pieces.pc[i].mtx && tetris->pieces.pc[i].name[0] != '\0')
             my_printf("Tetriminos : Name %s : Error\n", PIECE(i).name);
-        else {
+        else if (tetris->pieces.pc[i].mtx) {
             display_tetriminos_content(&tetris->pieces.pc[i]);
         }
     }

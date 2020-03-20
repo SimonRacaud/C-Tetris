@@ -60,6 +60,7 @@ char *merge_path_filename(const char *path, const char *filename);
 char *get_filename_without_ext(const char *filename);
 bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
 int get_key_code(char *str, char *key);
+bool have_right_file_ext(const char *filename, const char *extension);
 
 // Destroy
 void pieces_destroy(pieces_t *pieces);

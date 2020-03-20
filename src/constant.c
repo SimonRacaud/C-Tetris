@@ -8,6 +8,7 @@
 #include "tetris.h"
 
 const char *PATH_TETRIMINOS = "./tetriminos/";
+const char *TETRIMINO_EXT = ".tetrimino";
 const char *TETRIMINO_CHAR = "* ";
 
 // WINDOW

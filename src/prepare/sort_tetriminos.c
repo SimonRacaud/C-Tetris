@@ -22,6 +22,10 @@ static int swap_if_greater(tetrimino_t *pc, int i, char *sorted)
         } else if (pc[i].name[posX] == pc[next].name[posX]) {
             posX++;
         }
+        if (pc[i].name[posX] == pc[next].name[posX] &&
+                pc[i].name[posX] == '\0') {
+            break;
+        }
     } while (pc[i].name[posX] >= pc[next].name[posX]);
     return 0;
 }

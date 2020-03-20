@@ -9,6 +9,7 @@
 
 extern const char *PATH_TETRIMINOS;
 extern const char *TETRIMINO_CHAR;
+extern const char *TETRIMINO_EXT;
 
 static int load_piece_header(tetrimino_t *tetri, char *first_line)
 {
@@ -74,11 +75,25 @@ static int matrix_create(tetrimino_t *tetri, char **file)
     return EXIT_SUCCESS;
 }
 
+static bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
+{
+    bool right_ext = have_right_file_ext(filename, TETRIMINO_EXT);
+
+    if (!right_ext) {
+        tetrimino->mtx = NULL;
+        tetrimino->name = "";
+        return true;
+    }
+    return false;
+}
+
 int load_piece(tetrimino_t *tetrimino, char *filename)
 {
     int ret;
     char **file = NULL;
 
+    if (check_piece_file_extension(tetrimino, filename))
+        return EXIT_SUCCESS;
     file = load_piece_content(tetrimino, filename);
     if (!file)
         return EXIT_SUCCESS;
