@@ -30,9 +30,11 @@ static int load_pieces_filename(file_list_t **files, int *size)
     return EXIT_SUCCESS;
 }
 
-static int pieces_create(pieces_t *pieces, file_list_t *files, int size)
+static int pieces_create(pieces_t *pieces, file_list_t *files, int size,
+coord_t *map_size)
 {
     file_list_t *ptr = files;
+    int ret;
 
     pieces->size = size;
     pieces->pc = malloc(sizeof(tetrimino_t) * size);
@@ -40,7 +42,8 @@ static int pieces_create(pieces_t *pieces, file_list_t *files, int size)
         return EXIT_FAILURE;
     }
     for (int i = 0; i < size; i++) {
-        if (load_piece(&(pieces->pc[i]), ptr->filename) == EXIT_FAILURE)
+        ret = load_piece(&(pieces->pc[i]), ptr->filename, map_size);
+        if (ret == EXIT_FAILURE)
             return EXIT_FAILURE;
         ptr = ptr->next;
     }
@@ -55,7 +58,7 @@ static bool is_correct_list(tetrimino_t *list, int size)
     return false;
 }
 
-int load_tetriminos(pieces_t *pieces)
+int load_tetriminos(pieces_t *pieces, coord_t *map_size)
 {
     int count_file = 0;
     file_list_t *files = NULL;
@@ -64,7 +67,7 @@ int load_tetriminos(pieces_t *pieces)
         return EXIT_FAILURE;
     if (count_file == 0)
         return EXIT_FAILURE;
-    if (pieces_create(pieces, files, count_file) == EXIT_FAILURE)
+    if (pieces_create(pieces, files, count_file, map_size) == EXIT_FAILURE)
         return EXIT_FAILURE;
     file_list_destroy(files);
     sort_tetriminos(pieces->pc, pieces->size);
