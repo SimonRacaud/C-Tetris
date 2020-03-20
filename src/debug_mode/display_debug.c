@@ -42,7 +42,7 @@ static int key_display(config_t *config)
 
 static void display_tetriminos_content(tetrimino_t *piece)
 {
-    my_printf("Tetriminos : Name %s : Size %i*%i : Color %i : \n",
+    my_printf("Tetriminos : Name %s : Size %i*%i : Color %i :\n",
     piece->name, piece->width, piece->height, piece->color);
     for (int u = 0; u < piece->height; u++)
         my_printf("%s\n", piece->mtx[u]);
