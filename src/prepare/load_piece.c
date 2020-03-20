@@ -63,8 +63,9 @@ static int matrix_create(tetrimino_t *tetri, char **file)
         if (my_strlen(file[i]) > tetri->width || tetri->width <= 0)
             len = (-1);
     }
-    if (len != tetri->height)
+    if (len != tetri->height) {
         return EXIT_ERROR;
+    }
     tetri->mtx = malloc(sizeof(char *) * len);
     if (!tetri->mtx)
         return EXIT_FAILURE;
@@ -75,21 +76,24 @@ static int matrix_create(tetrimino_t *tetri, char **file)
     return EXIT_SUCCESS;
 }
 
-static bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
-{
-    bool right_ext = have_right_file_ext(filename, TETRIMINO_EXT);
-
-    if (!right_ext) {
-        tetrimino->mtx = NULL;
-        tetrimino->name = "";
-        return true;
-    }
-    return false;
-}
-
-int load_piece(tetrimino_t *tetrimino, char *filename)
+static int create_piece_matrix(tetrimino_t *tetri, char **file)
 {
     int ret;
+
+    ret = matrix_create(tetri, file);
+    if (ret == EXIT_ERROR) {
+        my_putstr_error(tetri->name);
+        my_putstr_error(" : matrix error\n");
+        tetri->mtx = NULL;
+        word_array_destroy(file);
+        return EXIT_SUCCESS;
+    } else if (ret == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
+int load_piece(tetrimino_t *tetrimino, char *filename, coord_t *map_size)
+{
     char **file = NULL;
 
     if (check_piece_file_extension(tetrimino, filename))
@@ -101,12 +105,12 @@ int load_piece(tetrimino_t *tetrimino, char *filename)
         tetrimino->mtx = NULL;
         return EXIT_SUCCESS;
     }
-    ret = matrix_create(tetrimino, file);
-    if (ret == EXIT_ERROR) {
+    if (check_piece_parameters(tetrimino, map_size) == false) {
         tetrimino->mtx = NULL;
         word_array_destroy(file);
         return EXIT_SUCCESS;
-    } else if (ret == EXIT_FAILURE)
+    }
+    if (create_piece_matrix(tetrimino, file) != EXIT_SUCCESS)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

@@ -40,6 +40,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/config/config_apply_options.c	\
 		$(DSRC)prepare/load_tetriminos.c				\
 		$(DSRC)prepare/load_piece.c						\
+		$(DSRC)prepare/load_piece_check.c				\
 		$(DSRC)prepare/pieces_destroy.c					\
 		$(DSRC)prepare/game_destroy.c					\
 		$(DSRC)prepare/sort_tetriminos.c				\

@@ -40,12 +40,15 @@ static int game_map_create(game_t *tetris)
 
 int game_init(game_t *tetris, char **argv, int argc, char **env)
 {
+    coord_t map_size;
+
     srand((unsigned int)clock());
     game_init_struct(tetris);
     if (get_config(&tetris->conf, argv, argc, env) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
-    if (load_tetriminos(&tetris->pieces) == EXIT_FAILURE)
+    map_size = (coord_t){tetris->conf.map_width, tetris->conf.map_height};
+    if (load_tetriminos(&tetris->pieces, &map_size) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (game_map_create(tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
