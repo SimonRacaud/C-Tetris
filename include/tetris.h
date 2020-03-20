@@ -72,8 +72,10 @@ int game_init(game_t *tetris, char **argv, int argc, char **env);
 int get_config(config_t *conf, char **argv, int argc, char **env);
 void config_init_default(config_t *conf);
 void config_init_spec_key(config_t *conf);
-int load_tetriminos(pieces_t *pieces);
-int load_piece(tetrimino_t *tetrminimo, char *filename);
+int load_tetriminos(pieces_t *pieces, coord_t *map_size);
+int load_piece(tetrimino_t *tetrimino, char *filename, coord_t *map_size);
+bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size);
+bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename);
 int sort_tetriminos(tetrimino_t *pc, int size);
 char **get_special_key(char **env);
 
