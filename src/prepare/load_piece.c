@@ -94,10 +94,8 @@ static int create_piece_matrix(tetrimino_t *tetri, char **file)
 
 int load_piece(tetrimino_t *tetrimino, char *filename, coord_t *map_size)
 {
-    static int i = 0;
     char **file = NULL;
 
-    my_printf("load piece %d %s\n", i++, filename);
     if (check_piece_file_extension(tetrimino, filename))
         return EXIT_SUCCESS;
     file = load_piece_content(tetrimino, filename);
