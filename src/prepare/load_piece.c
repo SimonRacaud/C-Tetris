@@ -30,15 +30,16 @@ static int load_piece_header(tetrimino_t *tetri, char *first_line)
 static char **load_piece_content(tetrimino_t *tetri, char *filename)
 {
     char *filepath = merge_path_filename(PATH_TETRIMINOS, filename);
-    char **file = read_file(filepath);
+    char **file;
 
     if (!filepath) {
         tetri->mtx = NULL;
         return NULL;
     }
+    file = read_file(filepath);
     tetri->name = get_filename_without_ext(filename);
     tetri->mtx = NULL;
-    if (!tetri->name) {
+    if (!tetri->name || !file) {
         return NULL;
     }
     if (!file || word_array_len(file) < 2) {
