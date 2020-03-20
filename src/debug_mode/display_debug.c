@@ -68,7 +68,7 @@ int show_debug_screen(game_t *tetris)
     my_putstr("*** DEBUG MODE ***\n");
     if (key_display(config) == EXIT_ERROR)
         return EXIT_ERROR;
-    if (config->hide_next_tetrimino)
+    if (!config->hide_next_tetrimino)
         my_putstr("Next : Yes\n");
     else
         my_putstr("Next : No\n");
