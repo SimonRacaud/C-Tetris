@@ -47,6 +47,14 @@ static int pieces_create(pieces_t *pieces, file_list_t *files, int size)
     return EXIT_SUCCESS;
 }
 
+static bool is_correct_list(tetrimino_t *list, int size)
+{
+    for (int i = 0; i < size; i++)
+        if (list[i].mtx)
+            return true;
+    return false;
+}
+
 int load_tetriminos(pieces_t *pieces)
 {
     int count_file = 0;
@@ -60,5 +68,7 @@ int load_tetriminos(pieces_t *pieces)
         return EXIT_FAILURE;
     file_list_destroy(files);
     sort_tetriminos(pieces->pc, pieces->size);
+    if (!is_correct_list(pieces->pc, pieces->size))
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
