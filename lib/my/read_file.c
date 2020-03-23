@@ -45,7 +45,9 @@ char **build_word_array(char *content, int len)
     char **word_array = NULL;
 
     if (len > 0) {
-        content[len - 1] = '\0';
+        if (content[len - 1] == '\n')
+            content[len - 1] = '\0';
+        content[len] = '\0';
         word_array =  my_str_to_word_array(content, "\n");
     } else {
         word_array = NULL;
