@@ -8,10 +8,9 @@
 #include "tetris.h"
 
 /*
- * piece_move(...)
- * return:  true if the piece has moved
- *          false else
- */
+piece_move(...)
+return:  true if the piece has moved, false else
+*/
 
 void drop_piece(game_t *tetris)
 {
