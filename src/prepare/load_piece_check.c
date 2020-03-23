@@ -25,7 +25,7 @@ bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
 
 bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size)
 {
-    if (tet->color < 0 || tet->colot > 7) {
+    if (tet->color < 0 || tet->color > 7) {
         tet->color = 1;
     }
     if (tet->width > map_size->x) {

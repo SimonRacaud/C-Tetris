@@ -28,7 +28,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)game/display/display_pieces.c			\
 		$(DSRC)game/display/color_init.c				\
 		$(DSRC)game/display/display_end_menu.c			\
-		$(DSRC)game/display/pause.c			\
+		$(DSRC)game/display/pause.c						\
 		$(DSRC)game/dup_tetrimino_t.c					\
 		$(DSRC)game/input/catch_input.c					\
 		$(DSRC)game/input/get_input.c					\
@@ -52,9 +52,10 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)piece/piece_have_collision.c				\
 		$(DSRC)piece/piece_is_in_map_range.c			\
 		$(DSRC)piece/piece_move.c						\
-		$(DSRC)piece/drop.c							\
+		$(DSRC)piece/drop.c								\
 		$(DSRC)debug_mode/display_debug.c				\
 		$(DSRC)debug_mode/canonical_mode.c				\
+		$(DSRC)debug_mode/count_tetriminos.c			\
 
 OBJ	=	$(SRC:.c=.o)
 
