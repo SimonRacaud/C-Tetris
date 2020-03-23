@@ -8,6 +8,7 @@
 #include "tetris.h"
 
 extern const char *TETRIMINO_EXT;
+extern const char *TETRIMINO_CHAR;
 
 bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
 {
@@ -51,7 +52,10 @@ bool check_piece_width(tetrimino_t *tet)
     int curr_width;
 
     for (ssize_t y = 0; y < tet->height; y++) {
-        curr_width = my_strlen(tet->mtx[y]);
+        for (size_t x = 0; tet->mtx[y][x] != '\0'; x++) {
+            if (tet->mtx[y][x] == TETRIMINO_CHAR[0])
+                curr_width = (x + 1);
+        }
         if (curr_width > tet->width) {
             return true;
         }
