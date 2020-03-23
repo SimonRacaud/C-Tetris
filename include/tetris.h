@@ -113,6 +113,7 @@ void my_colision(game_t *tetris);
 void color_init(void);
 void my_pause(void);
 tetrimino_t *dup_tetrimino(tetrimino_t *src);
+void clean_tetriminos(tetrimino_t *pc, int size);
 
 // INPUT
 int catch_input(game_t *tetris);
