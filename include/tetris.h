@@ -70,6 +70,7 @@ void game_destroy(game_t *tetris);
 // Prepare and Init
 int game_init(game_t *tetris, char **argv, int argc, char **env);
 int get_config(config_t *conf, char **argv, int argc, char **env);
+bool check_argv(char **argv, const int argc);
 void config_init_default(config_t *conf);
 void config_init_spec_key(config_t *conf);
 int load_tetriminos(pieces_t *pieces, coord_t *map_size);

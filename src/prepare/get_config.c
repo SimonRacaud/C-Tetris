@@ -59,7 +59,8 @@ static bool check_key(const char *key)
     return false;
 }
 
-static int check_for_option_error(config_t *conf)
+static int check_for_option_error(config_t *conf, char **argv,
+int argc)
 {
     if (conf->start_level < 1)
         return EXIT_FAILURE;
@@ -71,6 +72,9 @@ static int check_for_option_error(config_t *conf)
         return EXIT_FAILURE;
     if (!check_key(conf->key[QUIT_KEY]) || !check_key(conf->key[PAUSE_KEY]))
         return EXIT_FAILURE;
+    if (check_argv(argv, argc) == true) {
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }
 
@@ -91,7 +95,7 @@ int get_config(config_t *conf, char **argv, int argc, char **env)
     if (!conf->special_key)
         return EXIT_FAILURE;
     config_init_spec_key(conf);
-    if (check_for_option_error(conf) == EXIT_FAILURE) {
+    if (check_for_option_error(conf, argv, argc) == EXIT_FAILURE) {
         my_putstr_error("Option error : value error\n");
         return EXIT_FAILURE;
     }
