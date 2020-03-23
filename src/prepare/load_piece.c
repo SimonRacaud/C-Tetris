@@ -60,8 +60,6 @@ static int matrix_create(tetrimino_t *tetri, char **file)
         if (!have_only_correct_char_in_str(file[i], TETRIMINO_CHAR))
             return EXIT_ERROR;
         len++;
-        if (my_strlen(file[i]) > tetri->width || tetri->width <= 0)
-            len = (-1);
     }
     if (len != tetri->height) {
         return EXIT_ERROR;
@@ -89,6 +87,11 @@ static int create_piece_matrix(tetrimino_t *tetri, char **file)
         return EXIT_SUCCESS;
     } else if (ret == EXIT_FAILURE)
         return EXIT_FAILURE;
+    if (check_piece_width(tetri) == true) {
+        for (int j = 0; j < tetri->height; j++)
+            free(tetri->mtx[j]);
+        tetri->mtx = NULL;
+    }
     return EXIT_SUCCESS;
 }
 

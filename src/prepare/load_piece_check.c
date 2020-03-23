@@ -24,7 +24,7 @@ bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename)
 
 bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size)
 {
-    if (tet->color < 0 || tet->color > 7) {
+    if (tet->color < 0) {
         if (tet->name)
             my_putstr_error(tet->name);
         my_putstr_error(" : wrong color\n");
@@ -43,4 +43,24 @@ bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size)
         return false;
     }
     return true;
+}
+
+bool check_piece_width(tetrimino_t *tet)
+{
+    int max_width = 0;
+    int curr_width;
+
+    for (ssize_t y = 0; y < tet->height; y++) {
+        curr_width = my_strlen(tet->mtx[y]);
+        if (curr_width > tet->width) {
+            return true;
+        }
+        if (curr_width > max_width) {
+            max_width = curr_width;
+        }
+    }
+    if (max_width != tet->width) {
+        return true;
+    }
+    return false;
 }

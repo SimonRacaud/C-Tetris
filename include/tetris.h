@@ -76,6 +76,7 @@ int load_tetriminos(pieces_t *pieces, coord_t *map_size);
 int load_piece(tetrimino_t *tetrimino, char *filename, coord_t *map_size);
 bool check_piece_parameters(tetrimino_t *tet, coord_t *map_size);
 bool check_piece_file_extension(tetrimino_t *tetrimino, char *filename);
+bool check_piece_width(tetrimino_t *tet);
 int sort_tetriminos(tetrimino_t *pc, int size);
 char **get_special_key(char **env);
 
