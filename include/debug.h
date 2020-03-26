@@ -17,5 +17,6 @@ typedef struct key_t
 #define PIECE(x) tetris->pieces.pc[x]
 
 void canonical_mode_select(bool enable);
+int count_tetriminos(pieces_t *pieces);
 
 #endif
