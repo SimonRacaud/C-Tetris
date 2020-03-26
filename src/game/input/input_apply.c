@@ -26,17 +26,17 @@ int input_apply(char *input, int size, game_t *tetris)
     if (my_strcmp(input, "\e") == 0) {
         tetris->status = END;
     }
-    if (my_strncmp(input, tetris->conf.key[LEFT_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[LEFT_KEY], size) == 0)
         move_left(tetris);
-    if (my_strncmp(input, tetris->conf.key[RIGHT_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[RIGHT_KEY], size) == 0)
         move_right(tetris);
-    if (my_strncmp(input, tetris->conf.key[TURN_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[TURN_KEY], size) == 0)
         rotate(tetris);
-    if (my_strncmp(input, tetris->conf.key[DROP_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[DROP_KEY], size) == 0)
         drop_piece(tetris);
-    if (my_strncmp(input, tetris->conf.key[QUIT_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[QUIT_KEY], size) == 0)
         return EXIT_ERROR;
-    if (my_strncmp(input, tetris->conf.key[PAUSE_KEY], size) == 0)
+    if (my_strncmp(input, tetris->conf.key_ptr[PAUSE_KEY], size) == 0)
         my_pause();
     return EXIT_SUCCESS;
 }

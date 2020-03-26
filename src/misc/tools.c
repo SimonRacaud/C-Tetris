@@ -44,7 +44,7 @@ int get_key_code(char *str, char *key)
 {
     int len = my_strlen(str);
 
-    if (!(len == 1 || len == 3))
+    if (len < 1 || len > 3)
         return EXIT_FAILURE;
     my_strcpy(key, str);
     return EXIT_SUCCESS;

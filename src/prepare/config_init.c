@@ -31,6 +31,12 @@ void config_init_default(config_t *conf)
     conf->key[RIGHT_KEY][0] = 0;
     conf->key[TURN_KEY][0] = 0;
     conf->key[DROP_KEY][0] = 0;
+    conf->key_ptr[LEFT_KEY] = &(conf->key[LEFT_KEY][0]);
+    conf->key_ptr[RIGHT_KEY] = &(conf->key[RIGHT_KEY][0]);
+    conf->key_ptr[TURN_KEY] = &(conf->key[TURN_KEY][0]);
+    conf->key_ptr[DROP_KEY] = &(conf->key[DROP_KEY][0]);
+    conf->key_ptr[QUIT_KEY] = &(conf->key[QUIT_KEY][0]);
+    conf->key_ptr[PAUSE_KEY] = &(conf->key[PAUSE_KEY][0]);
     my_strncpy(conf->key[QUIT_KEY], INIT_KEY_QUIT, 4);
     my_strncpy(conf->key[PAUSE_KEY], INIT_KEY_PAUSE, 4);
     conf->map_height = INIT_MAP_HEIGHT;

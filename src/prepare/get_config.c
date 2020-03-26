@@ -43,7 +43,7 @@ static int apply_option(char index, config_t *conf)
     return EXIT_SUCCESS;
 }
 
-static bool check_key(const char *key)
+static bool check_key(char *key)
 {
     int len = my_strlen(key);
 
@@ -66,12 +66,10 @@ int argc)
         return EXIT_FAILURE;
     if (conf->map_width < 1 || conf->map_height < 1)
         return EXIT_FAILURE;
-    if (!check_key(conf->key[LEFT_KEY]) || !check_key(conf->key[RIGHT_KEY]))
-        return EXIT_FAILURE;
-    if (!check_key(conf->key[TURN_KEY]) || !check_key(conf->key[DROP_KEY]))
-        return EXIT_FAILURE;
-    if (!check_key(conf->key[QUIT_KEY]) || !check_key(conf->key[PAUSE_KEY]))
-        return EXIT_FAILURE;
+    for (size_t i = LEFT_KEY; i <= PAUSE_KEY; i++) {
+        if (!check_key(conf->key_ptr[QUIT_KEY]))
+            return EXIT_FAILURE;
+    }
     if (check_argv(argv, argc) == true) {
         return EXIT_FAILURE;
     }

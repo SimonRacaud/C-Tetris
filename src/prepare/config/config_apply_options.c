@@ -7,36 +7,49 @@
 
 #include "tetris.h"
 
-int apply_option_key_piece(config_t *conf, char index)
+static int apply_option_key_piece_sub(config_t *conf, char index)
 {
-    if (index == 'l') {
-        if (get_key_code(optarg, conf->key[LEFT_KEY]) == EXIT_FAILURE)
-            return EXIT_FAILURE;
-    }
-    if (index == 'r') {
-        if (get_key_code(optarg, conf->key[RIGHT_KEY]) == EXIT_FAILURE)
-            return EXIT_FAILURE;
-    }
     if (index == 't') {
-        if (get_key_code(optarg, conf->key[TURN_KEY]) == EXIT_FAILURE)
+        if (check_for_option_name(optarg, conf, TURN_KEY)) {
+        } else if (get_key_code(optarg, conf->key[TURN_KEY]) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 'd') {
-        if (get_key_code(optarg, conf->key[DROP_KEY]) == EXIT_FAILURE)
+        if (check_for_option_name(optarg, conf, DROP_KEY)) {
+        } else if (get_key_code(optarg, conf->key[DROP_KEY]) == EXIT_FAILURE)
             return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
+}
+
+int apply_option_key_piece(config_t *conf, char index)
+{
+    if (index == 'l') {
+        if (check_for_option_name(optarg, conf, LEFT_KEY)) {
+        } else if (get_key_code(optarg, conf->key[LEFT_KEY]) == EXIT_FAILURE)
+            return EXIT_FAILURE;
+    }
+    if (index == 'r') {
+        if (check_for_option_name(optarg, conf, RIGHT_KEY)) {
+        } else if (get_key_code(optarg, conf->key[RIGHT_KEY]) == EXIT_FAILURE)
+            return EXIT_FAILURE;
+    }
+    if (apply_option_key_piece_sub(conf, index) == EXIT_FAILURE) {
+        return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }
 
 int apply_option_key_menu(config_t *conf, char index)
 {
-
     if (index == 'q') {
-        if (get_key_code(optarg, conf->key[QUIT_KEY]) == EXIT_FAILURE)
+        if (check_for_option_name(optarg, conf, QUIT_KEY)) {
+        } else if (get_key_code(optarg, conf->key[QUIT_KEY]) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     if (index == 'p') {
-        if (get_key_code(optarg, conf->key[PAUSE_KEY]) == EXIT_FAILURE)
+        if (check_for_option_name(optarg, conf, PAUSE_KEY)) {
+        } else if (get_key_code(optarg, conf->key[PAUSE_KEY]) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;

@@ -34,8 +34,8 @@ const struct option LONG_OPTIONS[] = {
     {"key-right", required_argument, NULL, 'r'},
     {"key-turn", required_argument, NULL, 't'},
     {"key-drop", required_argument, NULL, 'd'},
-    {"key-quit", required_argument, NULL, 'p'},
-    {"key-pause", required_argument, NULL, 'q'},
+    {"key-quit", required_argument, NULL, 'q'},
+    {"key-pause", required_argument, NULL, 'p'},
     {"map-size", required_argument, NULL, 's'},
     {"without-next", no_argument, NULL, 'w'},
     {"debug", no_argument, NULL, 'D'},
@@ -105,7 +105,6 @@ const char *PAUSE =
 "|  |   |  _  ||  :  |/  \\ ||   [_ \n"
 "|  |   |  |  |l     |\\    ||     T\n"
 "l__j   l__j__j \\__,_j \\___jl_____j\n";
-
 
 const char *MYTERM = "TERM=";
 

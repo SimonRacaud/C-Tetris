@@ -20,6 +20,7 @@
 typedef struct config {
     int start_level;
     char key[6][4];
+    char *key_ptr[6];
     int map_height;
     int map_width;
     bool hide_next_tetrimino;
