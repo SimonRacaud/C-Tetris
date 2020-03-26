@@ -11,7 +11,6 @@ static void rm_space(tetrimino_t *piece, int y)
 {
     for (int x = piece->width - 1; x >= 0; x--)
         if (piece->mtx[y][x] == '*') {
-            if (x != piece->width - 1)
                 piece->mtx[y][x + 1] = '\0';
             break;
         }
