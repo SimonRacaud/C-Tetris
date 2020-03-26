@@ -44,6 +44,7 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/load_piece_check.c				\
 		$(DSRC)prepare/pieces_destroy.c					\
 		$(DSRC)prepare/game_destroy.c					\
+		$(DSRC)prepare/clean_piece.c				\
 		$(DSRC)prepare/sort_tetriminos.c				\
 		$(DSRC)prepare/get_special_key.c				\
 		$(DSRC)piece/rotate.c							\

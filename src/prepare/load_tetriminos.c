@@ -71,6 +71,7 @@ int load_tetriminos(pieces_t *pieces, coord_t *map_size)
         return EXIT_FAILURE;
     file_list_destroy(files);
     sort_tetriminos(pieces->pc, pieces->size);
+    clean_tetriminos(pieces->pc, pieces->size);
     if (!is_correct_list(pieces->pc, pieces->size))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;

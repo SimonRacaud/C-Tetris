@@ -48,7 +48,8 @@ char **get_special_key(char **env)
 
     if (!my_term)
         return NULL;
-    setupterm(my_term, 1, &my_errret);
+    if (setupterm(my_term, 1, &my_errret))
+        return NULL;
     free(my_term);
     if (my_errret == -1)
         return 0;
