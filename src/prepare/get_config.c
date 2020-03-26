@@ -53,7 +53,7 @@ static bool check_key(const char *key)
     if (len == 1) {
         return true;
     } else if (len == 3) {
-        if (my_strncmp(key, "\eO", 2) == 0)
+        if (my_strncmp(key, "\e", 1) == 0)
             return true;
     }
     return false;
