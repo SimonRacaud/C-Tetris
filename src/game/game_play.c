@@ -37,7 +37,7 @@ int game_play(game_t *tetris)
 {
     while (tetris->status == RUNNING) {
         set_player_piece(tetris->next_piece, &tetris->ppiece, tetris);
-        set_next_piece(tetris);
+        set_next_piece(tetris, 0);
         if (piece_falling_loop(tetris) == EXIT_ERROR)
             return EXIT_ERROR;
         increase_score(tetris, 10);

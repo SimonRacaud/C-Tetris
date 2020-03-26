@@ -25,6 +25,8 @@ int tetris(int argc, char **argv, char **env)
         if (show_debug_screen(&tetris) == EXIT_ERROR)
             return EXIT_ERROR;
     }
+    if (!tetris.next_piece)
+        return EXIT_ERROR;
     if (window_create(&tetris, false) == EXIT_FAILURE)
         return EXIT_ERROR;
     smkx_mode();

@@ -98,7 +98,7 @@ void canonical_mode_select(bool enable);
 int rotate(game_t *tetris);
 int set_player_piece(tetrimino_t *next_piece, player_piece_t *ppiece,
 game_t *game);
-int set_next_piece(game_t *game);
+int set_next_piece(game_t *game, size_t nb);
 bool piece_move(game_t *tetris, enum piece_move_sens sens);
 bool piece_have_collision(game_t *tetris);
 bool piece_is_in_map_range(game_t *tetris, player_piece_t *piece);

@@ -53,7 +53,7 @@ int game_init(game_t *tetris, char **argv, int argc, char **env)
     if (game_map_create(tetris) == EXIT_FAILURE)
         return EXIT_FAILURE;
     game_init_struct(tetris);
-    if (set_next_piece(tetris) == EXIT_FAILURE)
+    if (set_next_piece(tetris, 0) == EXIT_FAILURE)
         return EXIT_FAILURE;
     set_game_speed(tetris);
     return EXIT_SUCCESS;

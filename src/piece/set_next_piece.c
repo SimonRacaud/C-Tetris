@@ -12,16 +12,20 @@ static size_t get_random_idx(size_t min, size_t max)
     return (rand() % (max - min + 1)) + min;
 }
 
-int set_next_piece(game_t *game)
+int set_next_piece(game_t *game, size_t nb)
 {
     size_t idx = get_random_idx(0, (game->pieces.size - 1));
 
+    if (nb > 1000) {
+        game->next_piece = NULL;
+        return EXIT_SUCCESS;
+    }
     if (idx >= (size_t)game->pieces.size) {
         my_putstr_error("Error: get random next piece : invalid idx\n");
         idx = 0;
     }
     if (game->pieces.pc[idx].mtx == NULL) {
-        set_next_piece(game);
+        set_next_piece(game, nb + 1);
     } else {
         game->next_piece = dup_tetrimino(&game->pieces.pc[idx]);
         if (!game->next_piece)
