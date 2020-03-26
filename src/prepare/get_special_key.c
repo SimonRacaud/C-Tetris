@@ -53,8 +53,5 @@ char **get_special_key(char **env)
     free(my_term);
     if (my_errret == -1)
         return 0;
-    my_term = tigetstr("smkx");
-    if (my_term)
-        write(1, my_term, my_strlen(my_term));
     return get_array();
 }

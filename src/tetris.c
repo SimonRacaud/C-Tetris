@@ -7,6 +7,13 @@
 
 #include "tetris.h"
 
+static void smkx_mode(void)
+{
+    char *my_term = tigetstr("smkx");
+    if (my_term)
+        write(1, my_term, my_strlen(my_term));
+}
+
 int tetris(int argc, char **argv, char **env)
 {
     game_t tetris;
@@ -20,6 +27,7 @@ int tetris(int argc, char **argv, char **env)
     }
     if (window_create(&tetris, false) == EXIT_FAILURE)
         return EXIT_ERROR;
+    smkx_mode();
     if (game_play(&tetris) == EXIT_FAILURE)
         return EXIT_ERROR;
     game_destroy(&tetris);
