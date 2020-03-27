@@ -51,7 +51,7 @@ int argc)
     if (conf->map_width < 1 || conf->map_height < 1)
         return EXIT_FAILURE;
     for (size_t i = 0; i < 6; i++) {
-        if (!conf->key[i])
+        if (!conf->key[i] || conf->key[i][0] == '\0')
             return EXIT_FAILURE;
     }
     if (check_argv(argv, argc) == true) {
