@@ -21,7 +21,7 @@ extern const bool INIT_HIDE_NEXT_TERMI;
 
 extern const int LEFT_KEY_ID;
 extern const int RIGHT_KEY_ID;
-extern const int UP_KEY_ID ;
+extern const int UP_KEY_ID;
 extern const int DOWN_KEY_ID;
 
 void config_init_default(config_t *conf)
