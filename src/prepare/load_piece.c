@@ -15,7 +15,7 @@ static int load_piece_header(tetrimino_t *tetri, char *first_line)
 {
     char **header = my_str_to_word_array(first_line, " ");
 
-    if (!header || word_array_len(header) != 3) {
+    if (!header || word_array_len(header) != 3 || !header[2][0]) {
         return EXIT_FAILURE;
     }
     if (my_get_check_nbr(header[0], &(tetri->width), NULL) == EXIT_FAILURE)
