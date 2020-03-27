@@ -11,14 +11,12 @@
 
 static int key_manage(char *str, char *key)
 {
-    if (key && key[0] == ' ' && my_strlen(key) == 1) {
-        my_printf("%s : (space)\n", str);
-        return EXIT_SUCCESS;
-    }
     my_printf("%s : ", str, key);
     for (size_t i = 0; key[i] != '\0'; i++) {
         if (key[i] == '\e') {
             my_putstr("^E");
+        } else if (key[i] == ' ') {
+            my_putstr("(space)");
         } else {
             my_putchar(key[i]);
         }
