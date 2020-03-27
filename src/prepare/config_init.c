@@ -27,18 +27,12 @@ extern const int DOWN_KEY_ID;
 void config_init_default(config_t *conf)
 {
     conf->start_level = INIT_START_LEVEL;
-    conf->key[LEFT_KEY][0] = 0;
-    conf->key[RIGHT_KEY][0] = 0;
-    conf->key[TURN_KEY][0] = 0;
-    conf->key[DROP_KEY][0] = 0;
-    conf->key_ptr[LEFT_KEY] = &(conf->key[LEFT_KEY][0]);
-    conf->key_ptr[RIGHT_KEY] = &(conf->key[RIGHT_KEY][0]);
-    conf->key_ptr[TURN_KEY] = &(conf->key[TURN_KEY][0]);
-    conf->key_ptr[DROP_KEY] = &(conf->key[DROP_KEY][0]);
-    conf->key_ptr[QUIT_KEY] = &(conf->key[QUIT_KEY][0]);
-    conf->key_ptr[PAUSE_KEY] = &(conf->key[PAUSE_KEY][0]);
-    my_strncpy(conf->key[QUIT_KEY], INIT_KEY_QUIT, 4);
-    my_strncpy(conf->key[PAUSE_KEY], INIT_KEY_PAUSE, 4);
+    conf->key[LEFT_KEY] = NULL;
+    conf->key[RIGHT_KEY] = NULL;
+    conf->key[TURN_KEY] = NULL;
+    conf->key[DROP_KEY] = NULL;
+    conf->key[QUIT_KEY] = my_strdup(INIT_KEY_QUIT);
+    conf->key[PAUSE_KEY] = my_strdup(INIT_KEY_PAUSE);
     conf->map_height = INIT_MAP_HEIGHT;
     conf->map_width = INIT_MAP_WIDTH;
     conf->hide_next_tetrimino = INIT_HIDE_NEXT_TERMI;
@@ -47,13 +41,13 @@ void config_init_default(config_t *conf)
 
 void config_init_spec_key(config_t *conf)
 {
-    if (conf->special_key[LEFT_KEY_ID] && !conf->key[LEFT_KEY][0])
-        my_strncpy(conf->key[LEFT_KEY], conf->special_key[LEFT_KEY_ID], 4);
-    if (conf->special_key[RIGHT_KEY_ID] && !conf->key[RIGHT_KEY][0])
-        my_strncpy(conf->key[RIGHT_KEY], conf->special_key[RIGHT_KEY_ID], 4);
-    if (conf->special_key[UP_KEY_ID] && !conf->key[TURN_KEY][0])
-        my_strncpy(conf->key[TURN_KEY], conf->special_key[UP_KEY_ID], 4);
-    if (conf->special_key[DOWN_KEY_ID] && !conf->key[DROP_KEY][0]) {
-        my_strncpy(conf->key[DROP_KEY], conf->special_key[DOWN_KEY_ID], 4);
+    if (conf->special_key[LEFT_KEY_ID] && !conf->key[LEFT_KEY])
+        conf->key[LEFT_KEY] = my_strdup(conf->special_key[LEFT_KEY_ID]);
+    if (conf->special_key[RIGHT_KEY_ID] && !conf->key[RIGHT_KEY])
+        conf->key[RIGHT_KEY] = my_strdup(conf->special_key[RIGHT_KEY_ID]);
+    if (conf->special_key[UP_KEY_ID] && !conf->key[TURN_KEY])
+        conf->key[TURN_KEY] = my_strdup(conf->special_key[UP_KEY_ID]);
+    if (conf->special_key[DOWN_KEY_ID] && !conf->key[DROP_KEY]) {
+        conf->key[DROP_KEY] = my_strdup(conf->special_key[DOWN_KEY_ID]);
     }
 }

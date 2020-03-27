@@ -16,11 +16,13 @@ void game_destroy(game_t *tetris)
     tetrimino_destroy(tetris->ppiece.piece);
     free(tetris->ppiece.piece);
     pieces_destroy(&tetris->pieces);
-    for (int i = 0; i < tetris->conf.map_height; i++) {
+    for (ssize_t i = 0; i < tetris->conf.map_height; i++) {
         free(tetris->map[i]);
     }
-    for (int i = 0; i < NB_KEY; i++)
+    for (ssize_t i = 0; i < NB_KEY; i++)
         free(tetris->conf.special_key[i]);
+    for (ssize_t i = 0; i < 6; i++)
+        free(tetris->conf.key[i]);
     free(tetris->conf.special_key);
     free(tetris->map);
 }

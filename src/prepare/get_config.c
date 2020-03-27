@@ -43,22 +43,6 @@ static int apply_option(char index, config_t *conf)
     return EXIT_SUCCESS;
 }
 
-static bool check_key(char *key)
-{
-    int len = my_strlen(key);
-
-    if (len < 1) {
-        return false;
-    }
-    if (len == 1) {
-        return true;
-    } else if (len == 3 || len == 2) {
-        if (my_strncmp(key, "\e", 1) == 0)
-            return true;
-    }
-    return false;
-}
-
 static int check_for_option_error(config_t *conf, char **argv,
 int argc)
 {
@@ -66,8 +50,8 @@ int argc)
         return EXIT_FAILURE;
     if (conf->map_width < 1 || conf->map_height < 1)
         return EXIT_FAILURE;
-    for (size_t i = LEFT_KEY; i <= PAUSE_KEY; i++) {
-        if (!check_key(conf->key_ptr[QUIT_KEY]))
+    for (size_t i = 0; i < 6; i++) {
+        if (!conf->key[i])
             return EXIT_FAILURE;
     }
     if (check_argv(argv, argc) == true) {

@@ -59,7 +59,7 @@ bool have_char_in_string(char c, const char *str);
 char *merge_path_filename(const char *path, const char *filename);
 char *get_filename_without_ext(const char *filename);
 bool have_only_correct_char_in_str(const char *str, const char *correct_chars);
-int get_key_code(char *str, char *key);
+int get_key_code(const char *str, char **key);
 bool have_right_file_ext(const char *filename, const char *extension);
 
 // Destroy

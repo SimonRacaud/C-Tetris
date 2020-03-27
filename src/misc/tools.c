@@ -40,12 +40,8 @@ int my_get_check_nbr(char *str, int *nbr, const char *ignore)
     return EXIT_SUCCESS;
 }
 
-int get_key_code(char *str, char *key)
+int get_key_code(const char *str, char **key)
 {
-    int len = my_strlen(str);
-
-    if (len < 1 || len > 3)
-        return EXIT_FAILURE;
-    my_strcpy(key, str);
+    *key = my_strdup(str);
     return EXIT_SUCCESS;
 }

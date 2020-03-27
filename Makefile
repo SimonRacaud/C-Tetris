@@ -39,7 +39,6 @@ SRC	=	$(DSRC)main.c									\
 		$(DSRC)prepare/config_init.c					\
 		$(DSRC)prepare/config/config_apply_options.c	\
 		$(DSRC)prepare/config/check_argv.c				\
-		$(DSRC)prepare/config/check_for_option_name.c	\
 		$(DSRC)prepare/load_tetriminos.c				\
 		$(DSRC)prepare/load_piece.c						\
 		$(DSRC)prepare/load_piece_check.c				\
