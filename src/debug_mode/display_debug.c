@@ -13,7 +13,7 @@ static int key_manage(char *str, char *key)
 {
     if (key && key[0] == '\e') {
         my_printf("%s : ^E%s\n", str, key + 1);
-    } else if (key && key[0] == ' ') {
+    } else if (key && key[0] == ' ' && my_strlen(key) == 1) {
         my_printf("%s : (space)\n", str);
     } else
         my_printf("%s : %s\n", str, key);
