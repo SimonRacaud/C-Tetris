@@ -1,0 +1,83 @@
+###### My_ls
+•malloc •free •write
+opendir
+•readdir
+•closedir
+•stat
+•lstat
+•getpwuid
+•getgrgid
+•time
+•ctime
+•readlink
+•perror
+•strerror
+•exit
+
+###### Minishell 1
+malloc, free, read, write,
+close,
+exit,
+opendir,
+readdir,
+closedir,
+getcwd,
+chdir•
+fork,
+stat,
+lstat,
+fstat,
+open,
+getline•
+execve,
+access,
+isatty,
+wait,
+waitpid•
+wait3,
+wait4,
+signal,
+kill,
+getpid,
+strerror,
+perror,
+strsignal
+
+###### Navy
+malloc, free, write, read,
+open,
+close,
+lseek,
+getpid,
+kill,
+signal,
+sigaction,
+sigemptyset,
+setcontext,
+getcontext,
+usleep,
+nanosleep,
+pause,
+getline,
+fopen,
+fclose
+
+###### My printf
+malloc, free, write.
+
+###### Sokoban
+malloc, free,
+exit•
+(f)write•
+(f)open,
+(f)close,
+(f)read,
+getline,
+ioctl,
+usleep,
+sigaction,
+signal•
+stat,
+lstat,
+fstat
++ Every functions from the ncurses library are authorized. !!!!
