@@ -34,6 +34,4 @@ If the terminal is too small to host the map, the game does’t start; an error 
 
 For the gameplay, refer to the following usage:
 
-![images](https://imgur.com/xvgqstI.png)
-
-![images](https://imgur.com/BNdS2pO.png)
+![images](https://imgur.com/xvgqst
